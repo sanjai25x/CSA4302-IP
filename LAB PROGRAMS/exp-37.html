@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookHaven - Comprehensive Online Bookstore</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #fff7ed; text-align: center; margin: 0; padding: 20px; color: #1e293b; }
+        .container { max-width: 920px; margin: auto; background: #ffffff; padding: 25px; border-radius: 12px; box-shadow: 0 4px 14px rgba(0,0,0,0.08); }
+        h1 { color: #431407; margin-bottom: 5px; }
+        h2 { color: #7c2d12; border-bottom: 2px solid #fed7aa; padding-bottom: 6px; margin-top: 25px; font-size: 20px; }
+        h3 { color: #431407; font-size: 16px; margin-top: 15px; }
+        p { margin: 6px 0; }
+        input, select, textarea, button { padding: 9px; margin: 6px; max-width: 95%; border: 1px solid #cbd5e1; border-radius: 5px; box-sizing: border-box; font-size: 14px; }
+        button, input[type="submit"], input[type="button"] { cursor: pointer; background: #7c2d12; color: white; border: 0; border-radius: 5px; padding: 9px 18px; font-weight: bold; transition: background 0.2s; }
+        button:hover, input[type="submit"]:hover { background: #431407; }
+        table { margin: 15px auto; border-collapse: collapse; width: 98%; background: #fff; }
+        th, td { border: 1px solid #e2e8f0; padding: 10px; text-align: center; font-size: 14px; }
+        th { background-color: #ffedd5; color: #431407; }
+        tr:nth-child(even) { background-color: #f8fafc; }
+        section { padding: 14px 0; border-bottom: 1px solid #e2e8f0; text-align: center; }
+        .message { background-color: #ffedd5; color: #431407; padding: 10px; border-radius: 6px; font-weight: bold; margin: 12px 0; display: inline-block; min-width: 60%; }
+        .badge { display: inline-block; padding: 4px 8px; border-radius: 4px; font-size: 12px; font-weight: bold; background: #dcfce7; color: #166534; }
+        .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 15px; margin: 15px 0; }
+        .card { border: 1px solid #fed7aa; border-radius: 8px; padding: 15px; background: #ffffff; text-align: left; box-shadow: 0 2px 6px rgba(0,0,0,0.03); }
+        .card h4 { margin: 0 0 6px 0; color: #7c2d12; }
+        @media (max-width: 600px) { body { padding: 8px; } .container { padding: 12px; } table { font-size: 12px; display: block; overflow-x: auto; } th, td { padding: 6px; } }
+    </style>
+</head>
+<body>
+<div class="container" id="mainContainer">
+    <h1>BookHaven</h1>
+    <p>Curated Bestsellers, Academic Textbooks, Author Blogs & Worldwide Book Delivery</p>
+    <p id="message" class="message">Welcome to BookHaven! Academic Lab Project - 2026.</p>
+
+    <!-- Interactive Sections -->
+    
+    <section id="searchSection">
+        <h2>1. Search Book Catalog & Filter by Genre</h2>
+        <form id="searchForm">
+            <input type="text" id="searchForm_booktitleorauthor" placeholder="Book Title or Author" required> <select id="searchForm_genre">
+                        <option value="Fiction">Fiction</option><option value="Non-Fiction">Non-Fiction</option><option value="Academic">Academic</option><option value="Sci-Fi">Sci-Fi</option><option value="Biography">Biography</option>
+                    </select> <select id="searchForm_pricerange">
+                        <option value="Under ₹500">Under ₹500</option><option value="₹500-₹1000">₹500-₹1000</option><option value="Above ₹1000">Above ₹1000</option>
+                    </select><br>
+            <button type="submit">Search Library</button>
+        </form>
+    </section>
+    
+    <section id="cartSection">
+        <h2>2. Shopping Cart & Express Book Checkout</h2>
+        <form id="cartForm">
+            <input type="text" id="cartForm_readername" placeholder="Reader Name" required> <br><textarea id="cartForm_txt" rows="2" cols="45" placeholder="Shipping Address..." required></textarea><br> <select id="cartForm_deliveryoption">
+                        <option value="Standard Courier">Standard Courier</option><option value="Express Next-Day">Express Next-Day</option>
+                    </select> <select id="cartForm_payment">
+                        <option value="UPI">UPI</option><option value="Card">Card</option><option value="COD">COD</option>
+                    </select><br>
+            <button type="submit">Place Book Order</button>
+        </form>
+    </section>
+    
+    <section id="blogSection">
+        <h2>3. Literary Blog, Book Reviews & Author Interviews</h2>
+        <form id="blogForm">
+            <input type="text" id="blogForm_readeremailtosubscribe" placeholder="Reader Email to Subscribe" required><br>
+            <button type="submit">Join Book Club</button>
+        </form>
+    </section>
+    
+    <section id="contactSection">
+        <h2>4. Customer Support & Contact Us</h2>
+        <form id="contactForm">
+            <input type="text" id="contactForm_yourname" placeholder="Your Name" required> <br><textarea id="contactForm_txt" rows="2" cols="45" placeholder="Email Address..." required></textarea><br> <select id="contactForm_inquirytype">
+                        <option value="Order Tracking">Order Tracking</option><option value="Book Request">Book Request</option><option value="Returns">Returns</option>
+                    </select> <br><textarea id="contactForm_txt" rows="2" cols="45" placeholder="Message..." required></textarea><br><br>
+            <button type="submit">Send Inquiry</button>
+        </form>
+    </section>
+    
+    <section id="faqSection">
+        <h2>5. Frequently Asked Questions & Store Policies</h2>
+        <form id="faqForm">
+            <select id="faqForm_faqtopic">
+                        <option value="Shipping Timelines">Shipping Timelines</option><option value="Return Policy">Return Policy</option><option value="Account Help">Account Help</option>
+                    </select><br>
+            <button type="submit">Load FAQ Answers</button>
+        </form>
+    </section>
+    
+
+    <!-- Featured Items -->
+    <section>
+        <h2>Featured Catalog & Live Repository</h2>
+        <div class="card-grid">
+            
+            <div class="card">
+                <h4>⭐ 'The Midnight Library' by Matt Haig</h4>
+                <p><strong>Literary Fiction | Bestseller</strong></p>
+                <p><strong>Metrics / Fee:</strong> ₹420</p>
+                <p style="font-size: 13px; color: #555;">Between life and death there is a library containing books of lives you could have lived.</p>
+                <button type="button" onclick="quickAction(''The Midnight Library' by Matt Haig')">Select / Explore</button>
+            </div>
+            
+            <div class="card">
+                <h4>⭐ 'Atomic Habits' by James Clear</h4>
+                <p><strong>Self-Improvement | International Best Seller</strong></p>
+                <p><strong>Metrics / Fee:</strong> ₹499</p>
+                <p style="font-size: 13px; color: #555;">An easy and proven way to build good habits and break bad ones through tiny changes.</p>
+                <button type="button" onclick="quickAction(''Atomic Habits' by James Clear')">Select / Explore</button>
+            </div>
+            
+            <div class="card">
+                <h4>⭐ 'Computer Systems: A Programmer's Perspective'</h4>
+                <p><strong>Academic Computing Textbook</strong></p>
+                <p><strong>Metrics / Fee:</strong> ₹1,250</p>
+                <p style="font-size: 13px; color: #555;">Comprehensive foundation on computer architecture, machine-level programming, and memory.</p>
+                <button type="button" onclick="quickAction(''Computer Systems: A Programmer's Perspective'')">Select / Explore</button>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- Activity Log Table -->
+    <section>
+        <h2>System Activity & Live Transaction History</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Ref ID</th>
+                    <th>User / Actor</th>
+                    <th>Action / Module</th>
+                    <th>Timestamp</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody id="activityTableBody">
+                <tr><td colspan="5">No transactions recorded in current session.</td></tr>
+            </tbody>
+        </table>
+    </section>
+
+    <p style="color: #64748b; font-size: 13px; margin-top: 25px;">BookHaven - Internet Programming Laboratory 2026</p>
+</div>
+
+<script>
+    const msg = document.getElementById("message");
+    let logs = [];
+
+    function showMessage(text) { msg.textContent = text; }
+
+    function quickAction(item) {
+        showMessage("Selected: " + item + ". Ready for processing.");
+    }
+
+    function addLog(ref, actor, op, status) {
+        const tbody = document.getElementById("activityTableBody");
+        if (logs.length === 0) tbody.innerHTML = "";
+        logs.unshift({ ref, actor, op, time: new Date().toLocaleTimeString(), status });
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+            <td><strong>${ref}</strong></td>
+            <td>${actor}</td>
+            <td>${op}</td>
+            <td>${new Date().toLocaleTimeString()}</td>
+            <td><span class="badge">${status}</span></td>
+        `;
+        tbody.prepend(tr);
+    }
+
+    // Attach submit listeners to each form
+    
+    document.getElementById("searchForm").addEventListener("submit", function(ev) {
+        ev.preventDefault();
+        const refId = "BOO-" + Math.floor(1000 + Math.random() * 9000);
+        showMessage("Search Book Catalog & Filter by Genre: Processed successfully! Reference ID: " + refId);
+        addLog(refId, "Authorized User", "Search Book Catalog & Filter by Genre", "Completed");
+        this.reset();
+    });
+    
+    document.getElementById("cartForm").addEventListener("submit", function(ev) {
+        ev.preventDefault();
+        const refId = "BOO-" + Math.floor(1000 + Math.random() * 9000);
+        showMessage("Shopping Cart & Express Book Checkout: Processed successfully! Reference ID: " + refId);
+        addLog(refId, "Authorized User", "Shopping Cart & Express Book Checkout", "Completed");
+        this.reset();
+    });
+    
+    document.getElementById("blogForm").addEventListener("submit", function(ev) {
+        ev.preventDefault();
+        const refId = "BOO-" + Math.floor(1000 + Math.random() * 9000);
+        showMessage("Literary Blog, Book Reviews & Author Interviews: Processed successfully! Reference ID: " + refId);
+        addLog(refId, "Authorized User", "Literary Blog, Book Reviews & Author Interviews", "Completed");
+        this.reset();
+    });
+    
+    document.getElementById("contactForm").addEventListener("submit", function(ev) {
+        ev.preventDefault();
+        const refId = "BOO-" + Math.floor(1000 + Math.random() * 9000);
+        showMessage("Customer Support & Contact Us: Processed successfully! Reference ID: " + refId);
+        addLog(refId, "Authorized User", "Customer Support & Contact Us", "Completed");
+        this.reset();
+    });
+    
+    document.getElementById("faqForm").addEventListener("submit", function(ev) {
+        ev.preventDefault();
+        const refId = "BOO-" + Math.floor(1000 + Math.random() * 9000);
+        showMessage("Frequently Asked Questions & Store Policies: Processed successfully! Reference ID: " + refId);
+        addLog(refId, "Authorized User", "Frequently Asked Questions & Store Policies", "Completed");
+        this.reset();
+    });
+    
+</script>
+</body>
+</html>

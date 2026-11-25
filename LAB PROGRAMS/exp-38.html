@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyProfessionalShowcase - Professional Portfolio & Resume</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f8fafc; text-align: center; margin: 0; padding: 20px; color: #1e293b; }
+        .container { max-width: 920px; margin: auto; background: #ffffff; padding: 25px; border-radius: 12px; box-shadow: 0 4px 14px rgba(0,0,0,0.08); }
+        h1 { color: #020617; margin-bottom: 5px; }
+        h2 { color: #0f172a; border-bottom: 2px solid #cbd5e1; padding-bottom: 6px; margin-top: 25px; font-size: 20px; }
+        h3 { color: #020617; font-size: 16px; margin-top: 15px; }
+        p { margin: 6px 0; }
+        input, select, textarea, button { padding: 9px; margin: 6px; max-width: 95%; border: 1px solid #cbd5e1; border-radius: 5px; box-sizing: border-box; font-size: 14px; }
+        button, input[type="submit"], input[type="button"] { cursor: pointer; background: #0f172a; color: white; border: 0; border-radius: 5px; padding: 9px 18px; font-weight: bold; transition: background 0.2s; }
+        button:hover, input[type="submit"]:hover { background: #020617; }
+        table { margin: 15px auto; border-collapse: collapse; width: 98%; background: #fff; }
+        th, td { border: 1px solid #e2e8f0; padding: 10px; text-align: center; font-size: 14px; }
+        th { background-color: #f1f5f9; color: #020617; }
+        tr:nth-child(even) { background-color: #f8fafc; }
+        section { padding: 14px 0; border-bottom: 1px solid #e2e8f0; text-align: center; }
+        .message { background-color: #f1f5f9; color: #020617; padding: 10px; border-radius: 6px; font-weight: bold; margin: 12px 0; display: inline-block; min-width: 60%; }
+        .badge { display: inline-block; padding: 4px 8px; border-radius: 4px; font-size: 12px; font-weight: bold; background: #dcfce7; color: #166534; }
+        .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 15px; margin: 15px 0; }
+        .card { border: 1px solid #cbd5e1; border-radius: 8px; padding: 15px; background: #ffffff; text-align: left; box-shadow: 0 2px 6px rgba(0,0,0,0.03); }
+        .card h4 { margin: 0 0 6px 0; color: #0f172a; }
+        @media (max-width: 600px) { body { padding: 8px; } .container { padding: 12px; } table { font-size: 12px; display: block; overflow-x: auto; } th, td { padding: 6px; } }
+    </style>
+</head>
+<body>
+<div class="container" id="mainContainer">
+    <h1>MyProfessionalShowcase</h1>
+    <p>Software Engineer Portfolio, Interactive Resume & Enterprise Project Case Studies</p>
+    <p id="message" class="message">Welcome to MyProfessionalShowcase! Academic Lab Project - 2026.</p>
+
+    <!-- Interactive Sections -->
+    
+    <section id="aboutSection">
+        <h2>1. About Me, Professional Summary & Tech Stack</h2>
+        <form id="aboutForm">
+            <input type="text" id="aboutForm_recruitervisitorname" placeholder="Recruiter / Visitor Name" required> <br><textarea id="aboutForm_txt" rows="2" cols="45" placeholder="Email Address..." required></textarea><br> <select id="aboutForm_messagetopic">
+                        <option value="Job Opportunity">Job Opportunity</option><option value="Freelance">Freelance</option><option value="Consulting">Consulting</option>
+                    </select><br>
+            <button type="submit">Connect with Me</button>
+        </form>
+    </section>
+    
+    <section id="projectsSection">
+        <h2>2. Explore Notable Engineering Projects</h2>
+        <form id="projForm">
+            <select id="projForm_filtertechnology">
+                        <option value="React & Next.js">React & Next.js</option><option value="Node & Python">Node & Python</option><option value="Cloud AWS">Cloud AWS</option><option value="Microservices">Microservices</option>
+                    </select><br>
+            <button type="submit">Filter Projects</button>
+        </form>
+    </section>
+    
+    <section id="resumeSection">
+        <h2>3. Interactive Resume & Career Timeline</h2>
+        <form id="resumeForm">
+            <select id="resumeForm_selectcareeryear">
+                        <option value="2026 (Lead Architect)">2026 (Lead Architect)</option><option value="2024 (Senior Dev)">2024 (Senior Dev)</option><option value="2022 (Full-Stack Dev)">2022 (Full-Stack Dev)</option>
+                    </select><br>
+            <button type="submit">Load Timeline Milestones</button>
+        </form>
+    </section>
+    
+    <section id="blogSection">
+        <h2>4. Tech Insights, Engineering Blog & Articles</h2>
+        <form id="blogForm">
+            <select id="blogForm_articletopic">
+                        <option value="Distributed Systems">Distributed Systems</option><option value="AI Agents">AI Agents</option><option value="Web Performance">Web Performance</option>
+                    </select><br>
+            <button type="submit">Read Engineering Post</button>
+        </form>
+    </section>
+    
+    <section id="hireSection">
+        <h2>5. Hire Me / Consultation Inquiry</h2>
+        <form id="hireForm">
+            <input type="text" id="hireForm_clientcompanyname" placeholder="Client / Company Name" required> <input type="text" id="hireForm_projectscope" placeholder="Project Scope" required> <input type="text" id="hireForm_estimatedbudget" placeholder="Estimated Budget" required> <input type="text" id="hireForm_targettimeline" placeholder="Target Timeline" required><br>
+            <button type="submit">Submit Project Proposal</button>
+        </form>
+    </section>
+    
+
+    <!-- Featured Items -->
+    <section>
+        <h2>Featured Catalog & Live Repository</h2>
+        <div class="card-grid">
+            
+            <div class="card">
+                <h4>⭐ CloudScale: Multi-Tenant SaaS Platform</h4>
+                <p><strong>Next.js, Go, PostgreSQL, AWS</strong></p>
+                <p><strong>Metrics / Fee:</strong> Live Demo Available</p>
+                <p style="font-size: 13px; color: #555;">High-throughput cloud management platform processing 100k events/sec with 99.99% uptime.</p>
+                <button type="button" onclick="quickAction('CloudScale: Multi-Tenant SaaS Platform')">Select / Explore</button>
+            </div>
+            
+            <div class="card">
+                <h4>⭐ NeuroVision: Real-Time Edge AI Classifier</h4>
+                <p><strong>Python, PyTorch, TensorRT, Docker</strong></p>
+                <p><strong>Metrics / Fee:</strong> Open Source Repository</p>
+                <p style="font-size: 13px; color: #555;">Computer vision pipeline executing sub-10ms inference on embedded Nvidia Jetson hardware.</p>
+                <button type="button" onclick="quickAction('NeuroVision: Real-Time Edge AI Classifier')">Select / Explore</button>
+            </div>
+            
+            <div class="card">
+                <h4>⭐ FinFlow: High-Frequency Trading Dashboard</h4>
+                <p><strong>React, WebSockets, Rust, Redis</strong></p>
+                <p><strong>Metrics / Fee:</strong> Enterprise Case Study</p>
+                <p style="font-size: 13px; color: #555;">Low-latency market visualization engine streaming real-time order books across exchanges.</p>
+                <button type="button" onclick="quickAction('FinFlow: High-Frequency Trading Dashboard')">Select / Explore</button>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- Activity Log Table -->
+    <section>
+        <h2>System Activity & Live Transaction History</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Ref ID</th>
+                    <th>User / Actor</th>
+                    <th>Action / Module</th>
+                    <th>Timestamp</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody id="activityTableBody">
+                <tr><td colspan="5">No transactions recorded in current session.</td></tr>
+            </tbody>
+        </table>
+    </section>
+
+    <p style="color: #64748b; font-size: 13px; margin-top: 25px;">MyProfessionalShowcase - Internet Programming Laboratory 2026</p>
+</div>
+
+<script>
+    const msg = document.getElementById("message");
+    let logs = [];
+
+    function showMessage(text) { msg.textContent = text; }
+
+    function quickAction(item) {
+        showMessage("Selected: " + item + ". Ready for processing.");
+    }
+
+    function addLog(ref, actor, op, status) {
+        const tbody = document.getElementById("activityTableBody");
+        if (logs.length === 0) tbody.innerHTML = "";
+        logs.unshift({ ref, actor, op, time: new Date().toLocaleTimeString(), status });
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+            <td><strong>${ref}</strong></td>
+            <td>${actor}</td>
+            <td>${op}</td>
+            <td>${new Date().toLocaleTimeString()}</td>
+            <td><span class="badge">${status}</span></td>
+        `;
+        tbody.prepend(tr);
+    }
+
+    // Attach submit listeners to each form
+    
+    document.getElementById("aboutForm").addEventListener("submit", function(ev) {
+        ev.preventDefault();
+        const refId = "MYP-" + Math.floor(1000 + Math.random() * 9000);
+        showMessage("About Me, Professional Summary & Tech Stack: Processed successfully! Reference ID: " + refId);
+        addLog(refId, "Authorized User", "About Me, Professional Summary & Tech Stack", "Completed");
+        this.reset();
+    });
+    
+    document.getElementById("projForm").addEventListener("submit", function(ev) {
+        ev.preventDefault();
+        const refId = "MYP-" + Math.floor(1000 + Math.random() * 9000);
+        showMessage("Explore Notable Engineering Projects: Processed successfully! Reference ID: " + refId);
+        addLog(refId, "Authorized User", "Explore Notable Engineering Projects", "Completed");
+        this.reset();
+    });
+    
+    document.getElementById("resumeForm").addEventListener("submit", function(ev) {
+        ev.preventDefault();
+        const refId = "MYP-" + Math.floor(1000 + Math.random() * 9000);
+        showMessage("Interactive Resume & Career Timeline: Processed successfully! Reference ID: " + refId);
+        addLog(refId, "Authorized User", "Interactive Resume & Career Timeline", "Completed");
+        this.reset();
+    });
+    
+    document.getElementById("blogForm").addEventListener("submit", function(ev) {
+        ev.preventDefault();
+        const refId = "MYP-" + Math.floor(1000 + Math.random() * 9000);
+        showMessage("Tech Insights, Engineering Blog & Articles: Processed successfully! Reference ID: " + refId);
+        addLog(refId, "Authorized User", "Tech Insights, Engineering Blog & Articles", "Completed");
+        this.reset();
+    });
+    
+    document.getElementById("hireForm").addEventListener("submit", function(ev) {
+        ev.preventDefault();
+        const refId = "MYP-" + Math.floor(1000 + Math.random() * 9000);
+        showMessage("Hire Me / Consultation Inquiry: Processed successfully! Reference ID: " + refId);
+        addLog(refId, "Authorized User", "Hire Me / Consultation Inquiry", "Completed");
+        this.reset();
+    });
+    
+</script>
+</body>
+</html>

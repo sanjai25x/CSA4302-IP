@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KodaikanalEats - Restaurant Booking & Dining Reservation</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #fffbeb; text-align: center; margin: 0; padding: 20px; color: #1e293b; }
+        .container { max-width: 920px; margin: auto; background: #ffffff; padding: 25px; border-radius: 12px; box-shadow: 0 4px 14px rgba(0,0,0,0.08); }
+        h1 { color: #92400e; margin-bottom: 5px; }
+        h2 { color: #d97706; border-bottom: 2px solid #fde68a; padding-bottom: 6px; margin-top: 25px; font-size: 20px; }
+        h3 { color: #92400e; font-size: 16px; margin-top: 15px; }
+        p { margin: 6px 0; }
+        input, select, textarea, button { padding: 9px; margin: 6px; max-width: 95%; border: 1px solid #cbd5e1; border-radius: 5px; box-sizing: border-box; font-size: 14px; }
+        button, input[type="submit"], input[type="button"] { cursor: pointer; background: #d97706; color: white; border: 0; border-radius: 5px; padding: 9px 18px; font-weight: bold; transition: background 0.2s; }
+        button:hover, input[type="submit"]:hover { background: #92400e; }
+        table { margin: 15px auto; border-collapse: collapse; width: 98%; background: #fff; }
+        th, td { border: 1px solid #e2e8f0; padding: 10px; text-align: center; font-size: 14px; }
+        th { background-color: #fef3c7; color: #92400e; }
+        tr:nth-child(even) { background-color: #f8fafc; }
+        section { padding: 14px 0; border-bottom: 1px solid #e2e8f0; text-align: center; }
+        .message { background-color: #fef3c7; color: #92400e; padding: 10px; border-radius: 6px; font-weight: bold; margin: 12px 0; display: inline-block; min-width: 60%; }
+        .badge { display: inline-block; padding: 4px 8px; border-radius: 4px; font-size: 12px; font-weight: bold; background: #dcfce7; color: #166534; }
+        .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 15px; margin: 15px 0; }
+        .card { border: 1px solid #fde68a; border-radius: 8px; padding: 15px; background: #ffffff; text-align: left; box-shadow: 0 2px 6px rgba(0,0,0,0.03); }
+        .card h4 { margin: 0 0 6px 0; color: #d97706; }
+        @media (max-width: 600px) { body { padding: 8px; } .container { padding: 12px; } table { font-size: 12px; display: block; overflow-x: auto; } th, td { padding: 6px; } }
+    </style>
+</head>
+<body>
+<div class="container" id="mainContainer">
+    <h1>KodaikanalEats</h1>
+    <p>Hill-Station Gourmet Dining, Scenic Mountain Cafes & Resort Table Booking</p>
+    <p id="message" class="message">Welcome to KodaikanalEats! Academic Lab Project - 2026.</p>
+
+    <!-- Interactive Sections -->
+    
+    <section id="searchSection">
+        <h2>1. Explore Kodaikanal Dining by Cuisine & Location</h2>
+        <form id="searchForm">
+            <input type="text" id="searchForm_restaurantnamelandmark" placeholder="Restaurant Name / Landmark" required> <select id="searchForm_cuisine">
+                        <option value="South Indian">South Indian</option><option value="Continental">Continental</option><option value="Tibetan">Tibetan</option><option value="Italian">Italian</option>
+                    </select> <select id="searchForm_location">
+                        <option value="Lake Road">Lake Road</option><option value="Coaker's Walk">Coaker's Walk</option><option value="Vattakanal">Vattakanal</option><option value="Pillar Rocks">Pillar Rocks</option>
+                    </select><br>
+            <button type="submit">Discover Dining Spots</button>
+        </form>
+    </section>
+    
+    <section id="reserveSection">
+        <h2>2. Table & Resort Dining Suite Reservation</h2>
+        <form id="reserveForm">
+            <input type="text" id="reserveForm_guestname" placeholder="Guest Name" required> <input type="text" id="reserveForm_contactmobile" placeholder="Contact Mobile" required> <input type="text" id="reserveForm_selectrestaurant" placeholder="Select Restaurant" required> <select id="reserveForm_diningoption">
+                        <option value="Standard Table">Standard Table</option><option value="Deluxe Mountain-View Suite">Deluxe Mountain-View Suite</option><option value="Outdoor Bonfire Gazebo">Outdoor Bonfire Gazebo</option>
+                    </select> <input type="number" id="reserveForm_guestscount" placeholder="Guests Count" required> <label>Dining Date & Time: <input type="date" id="reserveForm_date" required></label><br>
+            <button type="submit">Confirm Table Reservation</button>
+        </form>
+    </section>
+    
+    <section id="offersSection">
+        <h2>3. Special Seasonal Dining Offers & Discounts</h2>
+        <form id="offerForm">
+            <select id="offerForm_applycoupon">
+                        <option value="MISTY15 (15% Off)">MISTY15 (15% Off)</option><option value="HILLTOP20 (20% Off)">HILLTOP20 (20% Off)</option>
+                    </select><br>
+            <button type="submit">Redeem Special Offer</button>
+        </form>
+    </section>
+    
+    <section id="feedbackSection">
+        <h2>4. Submit Dining Review & Culinary Rating</h2>
+        <form id="fbForm">
+            <input type="text" id="fbForm_restaurantname" placeholder="Restaurant Name" required> <select id="fbForm_rating">
+                        <option value="5 Stars">5 Stars</option><option value="4 Stars">4 Stars</option><option value="3 Stars">3 Stars</option>
+                    </select> <br><textarea id="fbForm_txt" rows="2" cols="45" placeholder="Culinary Review Notes..." required></textarea><br><br>
+            <button type="submit">Publish Review</button>
+        </form>
+    </section>
+    
+    <section id="adminSection">
+        <h2>5. Admin Management - Table Suites & Staff Roster</h2>
+        <form id="adminForm">
+            <input type="text" id="adminForm_restaurantname" placeholder="Restaurant Name" required> <input type="number" id="adminForm_availabletablescount" placeholder="Available Tables Count" required> <input type="text" id="adminForm_roomattendantsassigned" placeholder="Room Attendants Assigned" required> <select id="adminForm_seasonratetariff">
+                        <option value="Peak Season">Peak Season</option><option value="Off-Season">Off-Season</option>
+                    </select><br>
+            <button type="submit">Update Plaza Details</button>
+        </form>
+    </section>
+    
+
+    <!-- Featured Items -->
+    <section>
+        <h2>Featured Catalog & Live Repository</h2>
+        <div class="card-grid">
+            
+            <div class="card">
+                <h4>⭐ Cloud9 Mountain Panorama Bistro</h4>
+                <p><strong>Continental & Italian | Vattakanal</strong></p>
+                <p><strong>Metrics / Fee:</strong> Avg ₹1,200 for two</p>
+                <p style="font-size: 13px; color: #555;">Perched on cliff edge with wood-fired pizzas, herbal teas, and valley mist views.</p>
+                <button type="button" onclick="quickAction('Cloud9 Mountain Panorama Bistro')">Select / Explore</button>
+            </div>
+            
+            <div class="card">
+                <h4>⭐ Tibet Kitchen & Dumpling House</h4>
+                <p><strong>Authentic Tibetan & Himalayan | Club Rd</strong></p>
+                <p><strong>Metrics / Fee:</strong> Avg ₹750 for two</p>
+                <p style="font-size: 13px; color: #555;">Famous for steamed momos, piping hot Thukpa soup, and spiced ginger honey tea.</p>
+                <button type="button" onclick="quickAction('Tibet Kitchen & Dumpling House')">Select / Explore</button>
+            </div>
+            
+            <div class="card">
+                <h4>⭐ Royal Heritage Courtyard Restaurant</h4>
+                <p><strong>South Indian Chettinad | Lake Road</strong></p>
+                <p><strong>Metrics / Fee:</strong> Avg ₹1,100 for two</p>
+                <p style="font-size: 13px; color: #555;">Authentic wood-smoked biryani, appam with stew, and traditional filter coffee.</p>
+                <button type="button" onclick="quickAction('Royal Heritage Courtyard Restaurant')">Select / Explore</button>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- Activity Log Table -->
+    <section>
+        <h2>System Activity & Live Transaction History</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Ref ID</th>
+                    <th>User / Actor</th>
+                    <th>Action / Module</th>
+                    <th>Timestamp</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody id="activityTableBody">
+                <tr><td colspan="5">No transactions recorded in current session.</td></tr>
+            </tbody>
+        </table>
+    </section>
+
+    <p style="color: #64748b; font-size: 13px; margin-top: 25px;">KodaikanalEats - Internet Programming Laboratory 2026</p>
+</div>
+
+<script>
+    const msg = document.getElementById("message");
+    let logs = [];
+
+    function showMessage(text) { msg.textContent = text; }
+
+    function quickAction(item) {
+        showMessage("Selected: " + item + ". Ready for processing.");
+    }
+
+    function addLog(ref, actor, op, status) {
+        const tbody = document.getElementById("activityTableBody");
+        if (logs.length === 0) tbody.innerHTML = "";
+        logs.unshift({ ref, actor, op, time: new Date().toLocaleTimeString(), status });
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+            <td><strong>${ref}</strong></td>
+            <td>${actor}</td>
+            <td>${op}</td>
+            <td>${new Date().toLocaleTimeString()}</td>
+            <td><span class="badge">${status}</span></td>
+        `;
+        tbody.prepend(tr);
+    }
+
+    // Attach submit listeners to each form
+    
+    document.getElementById("searchForm").addEventListener("submit", function(ev) {
+        ev.preventDefault();
+        const refId = "KOD-" + Math.floor(1000 + Math.random() * 9000);
+        showMessage("Explore Kodaikanal Dining by Cuisine & Location: Processed successfully! Reference ID: " + refId);
+        addLog(refId, "Authorized User", "Explore Kodaikanal Dining by Cuisine & Location", "Completed");
+        this.reset();
+    });
+    
+    document.getElementById("reserveForm").addEventListener("submit", function(ev) {
+        ev.preventDefault();
+        const refId = "KOD-" + Math.floor(1000 + Math.random() * 9000);
+        showMessage("Table & Resort Dining Suite Reservation: Processed successfully! Reference ID: " + refId);
+        addLog(refId, "Authorized User", "Table & Resort Dining Suite Reservation", "Completed");
+        this.reset();
+    });
+    
+    document.getElementById("offerForm").addEventListener("submit", function(ev) {
+        ev.preventDefault();
+        const refId = "KOD-" + Math.floor(1000 + Math.random() * 9000);
+        showMessage("Special Seasonal Dining Offers & Discounts: Processed successfully! Reference ID: " + refId);
+        addLog(refId, "Authorized User", "Special Seasonal Dining Offers & Discounts", "Completed");
+        this.reset();
+    });
+    
+    document.getElementById("fbForm").addEventListener("submit", function(ev) {
+        ev.preventDefault();
+        const refId = "KOD-" + Math.floor(1000 + Math.random() * 9000);
+        showMessage("Submit Dining Review & Culinary Rating: Processed successfully! Reference ID: " + refId);
+        addLog(refId, "Authorized User", "Submit Dining Review & Culinary Rating", "Completed");
+        this.reset();
+    });
+    
+    document.getElementById("adminForm").addEventListener("submit", function(ev) {
+        ev.preventDefault();
+        const refId = "KOD-" + Math.floor(1000 + Math.random() * 9000);
+        showMessage("Admin Management - Table Suites & Staff Roster: Processed successfully! Reference ID: " + refId);
+        addLog(refId, "Authorized User", "Admin Management - Table Suites & Staff Roster", "Completed");
+        this.reset();
+    });
+    
+</script>
+</body>
+</html>

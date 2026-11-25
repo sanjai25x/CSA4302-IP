@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LearnWell Tuition Centre - Coaching Announcements & Portal</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #eef2ff; text-align: center; margin: 0; padding: 20px; color: #1e293b; }
+        .container { max-width: 920px; margin: auto; background: #ffffff; padding: 25px; border-radius: 12px; box-shadow: 0 4px 14px rgba(0,0,0,0.08); }
+        h1 { color: #3730a3; margin-bottom: 5px; }
+        h2 { color: #4f46e5; border-bottom: 2px solid #c7d2fe; padding-bottom: 6px; margin-top: 25px; font-size: 20px; }
+        h3 { color: #3730a3; font-size: 16px; margin-top: 15px; }
+        p { margin: 6px 0; }
+        input, select, textarea, button { padding: 9px; margin: 6px; max-width: 95%; border: 1px solid #cbd5e1; border-radius: 5px; box-sizing: border-box; font-size: 14px; }
+        button, input[type="submit"], input[type="button"] { cursor: pointer; background: #4f46e5; color: white; border: 0; border-radius: 5px; padding: 9px 18px; font-weight: bold; transition: background 0.2s; }
+        button:hover, input[type="submit"]:hover { background: #3730a3; }
+        table { margin: 15px auto; border-collapse: collapse; width: 98%; background: #fff; }
+        th, td { border: 1px solid #e2e8f0; padding: 10px; text-align: center; font-size: 14px; }
+        th { background-color: #e0e7ff; color: #3730a3; }
+        tr:nth-child(even) { background-color: #f8fafc; }
+        section { padding: 14px 0; border-bottom: 1px solid #e2e8f0; text-align: center; }
+        .message { background-color: #e0e7ff; color: #3730a3; padding: 10px; border-radius: 6px; font-weight: bold; margin: 12px 0; display: inline-block; min-width: 60%; }
+        .badge { display: inline-block; padding: 4px 8px; border-radius: 4px; font-size: 12px; font-weight: bold; background: #dcfce7; color: #166534; }
+        .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 15px; margin: 15px 0; }
+        .card { border: 1px solid #c7d2fe; border-radius: 8px; padding: 15px; background: #ffffff; text-align: left; box-shadow: 0 2px 6px rgba(0,0,0,0.03); }
+        .card h4 { margin: 0 0 6px 0; color: #4f46e5; }
+        @media (max-width: 600px) { body { padding: 8px; } .container { padding: 12px; } table { font-size: 12px; display: block; overflow-x: auto; } th, td { padding: 6px; } }
+    </style>
+</head>
+<body>
+<div class="container" id="mainContainer">
+    <h1>LearnWell Tuition Centre</h1>
+    <p>Class Announcements, Course Registrations, Fee Tracking & Parent Portal</p>
+    <p id="message" class="message">Welcome to LearnWell Tuition Centre! Academic Lab Project - 2026.</p>
+
+    <!-- Interactive Sections -->
+    
+    <section id="regSection">
+        <h2>1. Student, Parent & Teacher Registration</h2>
+        <form id="regForm">
+            <input type="text" id="regForm_fullname" placeholder="Full Name" required> <br><textarea id="regForm_txt" rows="2" cols="45" placeholder="Email Address..." required></textarea><br> <input type="text" id="regForm_mobilenumber" placeholder="Mobile Number" required> <select id="regForm_role">
+                        <option value="Student">Student</option><option value="Parent">Parent</option><option value="Teacher">Teacher</option>
+                    </select><br>
+            <button type="submit">Register Account</button>
+        </form>
+    </section>
+    
+    <section id="courseSection">
+        <h2>2. Course Enrollment & Batch Mode Selection</h2>
+        <form id="enrollForm">
+            <input type="text" id="enrollForm_studentname" placeholder="Student Name" required> <select id="enrollForm_grade">
+                        <option value="Grade 10">Grade 10</option><option value="Grade 11">Grade 11</option><option value="Grade 12">Grade 12</option><option value="Engineering">Engineering</option>
+                    </select> <select id="enrollForm_subject">
+                        <option value="Advanced Math">Advanced Math</option><option value="Physics">Physics</option><option value="Chemistry">Chemistry</option><option value="Computer Science">Computer Science</option>
+                    </select> <select id="enrollForm_learningmode">
+                        <option value="Online Live Virtual">Online Live Virtual</option><option value="Offline Classroom">Offline Classroom</option>
+                    </select><br>
+            <button type="submit">Enroll in Subject</button>
+        </form>
+    </section>
+    
+    <section id="feesSection">
+        <h2>3. Student Fee Payment & Tuition Receipts</h2>
+        <form id="feeForm">
+            <input type="text" id="feeForm_studentenrollmentid" placeholder="Student Enrollment ID" required> <select id="feeForm_installment">
+                        <option value="Term 1">Term 1</option><option value="Term 2">Term 2</option><option value="Annual Full Payment">Annual Full Payment</option>
+                    </select> <select id="feeForm_paymentmethod">
+                        <option value="UPI">UPI</option><option value="Card">Card</option><option value="NetBanking">NetBanking</option>
+                    </select><br>
+            <button type="submit">Pay Tuition Fee</button>
+        </form>
+    </section>
+    
+    <section id="supportSection">
+        <h2>4. Parent Maintenance & Query Support Desk</h2>
+        <form id="supportForm">
+            <input type="text" id="supportForm_parentname" placeholder="Parent Name" required> <input type="text" id="supportForm_studentname" placeholder="Student Name" required> <select id="supportForm_query">
+                        <option value="Syllabus Progress">Syllabus Progress</option><option value="Schedule Change">Schedule Change</option><option value="Exam Report">Exam Report</option>
+                    </select><br>
+            <button type="submit">Submit Support Query</button>
+        </form>
+    </section>
+    
+    <section id="adminSection">
+        <h2>5. Academy Administration - Faculty & Subject Setup</h2>
+        <form id="adminForm">
+            <input type="text" id="adminForm_subjecttitle" placeholder="Subject Title" required> <input type="text" id="adminForm_facultyincharge" placeholder="Faculty In-Charge" required> <input type="text" id="adminForm_durationmonths" placeholder="Duration (Months)" required> <input type="text" id="adminForm_tuitionfee" placeholder="Tuition Fee (₹)" required><br>
+            <button type="submit">Add Subject to Curriculum</button>
+        </form>
+    </section>
+    
+
+    <!-- Featured Items -->
+    <section>
+        <h2>Featured Catalog & Live Repository</h2>
+        <div class="card-grid">
+            
+            <div class="card">
+                <h4>⭐ Class 12 CBSE / State Board Mathematics</h4>
+                <p><strong>Calculus, Vectors & Algebra | 10 Months</strong></p>
+                <p><strong>Metrics / Fee:</strong> ₹1,500 / month</p>
+                <p style="font-size: 13px; color: #555;">Includes weekly mock tests, previous 10-year question solving, and doubt clearance.</p>
+                <button type="button" onclick="quickAction('Class 12 CBSE / State Board Mathematics')">Select / Explore</button>
+            </div>
+            
+            <div class="card">
+                <h4>⭐ IIT-JEE / NEET Foundation Physics</h4>
+                <p><strong>Mechanics, Optics & Electromagnetism</strong></p>
+                <p><strong>Metrics / Fee:</strong> ₹2,200 / month</p>
+                <p style="font-size: 13px; color: #555;">Concept-first pedagogical methodology with animated simulations and problem sets.</p>
+                <button type="button" onclick="quickAction('IIT-JEE / NEET Foundation Physics')">Select / Explore</button>
+            </div>
+            
+            <div class="card">
+                <h4>⭐ Python Programming & Web Engineering</h4>
+                <p><strong>Practical Lab Coding & Projects | 4 Months</strong></p>
+                <p><strong>Metrics / Fee:</strong> ₹1,800 / month</p>
+                <p style="font-size: 13px; color: #555;">Full-stack web fundamentals covering HTML, CSS, JS, Python, and SQL databases.</p>
+                <button type="button" onclick="quickAction('Python Programming & Web Engineering')">Select / Explore</button>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- Activity Log Table -->
+    <section>
+        <h2>System Activity & Live Transaction History</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Ref ID</th>
+                    <th>User / Actor</th>
+                    <th>Action / Module</th>
+                    <th>Timestamp</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody id="activityTableBody">
+                <tr><td colspan="5">No transactions recorded in current session.</td></tr>
+            </tbody>
+        </table>
+    </section>
+
+    <p style="color: #64748b; font-size: 13px; margin-top: 25px;">LearnWell Tuition Centre - Internet Programming Laboratory 2026</p>
+</div>
+
+<script>
+    const msg = document.getElementById("message");
+    let logs = [];
+
+    function showMessage(text) { msg.textContent = text; }
+
+    function quickAction(item) {
+        showMessage("Selected: " + item + ". Ready for processing.");
+    }
+
+    function addLog(ref, actor, op, status) {
+        const tbody = document.getElementById("activityTableBody");
+        if (logs.length === 0) tbody.innerHTML = "";
+        logs.unshift({ ref, actor, op, time: new Date().toLocaleTimeString(), status });
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+            <td><strong>${ref}</strong></td>
+            <td>${actor}</td>
+            <td>${op}</td>
+            <td>${new Date().toLocaleTimeString()}</td>
+            <td><span class="badge">${status}</span></td>
+        `;
+        tbody.prepend(tr);
+    }
+
+    // Attach submit listeners to each form
+    
+    document.getElementById("regForm").addEventListener("submit", function(ev) {
+        ev.preventDefault();
+        const refId = "LEA-" + Math.floor(1000 + Math.random() * 9000);
+        showMessage("Student, Parent & Teacher Registration: Processed successfully! Reference ID: " + refId);
+        addLog(refId, "Authorized User", "Student, Parent & Teacher Registration", "Completed");
+        this.reset();
+    });
+    
+    document.getElementById("enrollForm").addEventListener("submit", function(ev) {
+        ev.preventDefault();
+        const refId = "LEA-" + Math.floor(1000 + Math.random() * 9000);
+        showMessage("Course Enrollment & Batch Mode Selection: Processed successfully! Reference ID: " + refId);
+        addLog(refId, "Authorized User", "Course Enrollment & Batch Mode Selection", "Completed");
+        this.reset();
+    });
+    
+    document.getElementById("feeForm").addEventListener("submit", function(ev) {
+        ev.preventDefault();
+        const refId = "LEA-" + Math.floor(1000 + Math.random() * 9000);
+        showMessage("Student Fee Payment & Tuition Receipts: Processed successfully! Reference ID: " + refId);
+        addLog(refId, "Authorized User", "Student Fee Payment & Tuition Receipts", "Completed");
+        this.reset();
+    });
+    
+    document.getElementById("supportForm").addEventListener("submit", function(ev) {
+        ev.preventDefault();
+        const refId = "LEA-" + Math.floor(1000 + Math.random() * 9000);
+        showMessage("Parent Maintenance & Query Support Desk: Processed successfully! Reference ID: " + refId);
+        addLog(refId, "Authorized User", "Parent Maintenance & Query Support Desk", "Completed");
+        this.reset();
+    });
+    
+    document.getElementById("adminForm").addEventListener("submit", function(ev) {
+        ev.preventDefault();
+        const refId = "LEA-" + Math.floor(1000 + Math.random() * 9000);
+        showMessage("Academy Administration - Faculty & Subject Setup: Processed successfully! Reference ID: " + refId);
+        addLog(refId, "Authorized User", "Academy Administration - Faculty & Subject Setup", "Completed");
+        this.reset();
+    });
+    
+</script>
+</body>
+</html>

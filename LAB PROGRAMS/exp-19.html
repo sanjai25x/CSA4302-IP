@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VetCure - Veterinary Telemedicine & Animal Healthcare</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f0fdfa; text-align: center; margin: 0; padding: 20px; color: #1e293b; }
+        .container { max-width: 920px; margin: auto; background: #ffffff; padding: 25px; border-radius: 12px; box-shadow: 0 4px 14px rgba(0,0,0,0.08); }
+        h1 { color: #115e59; margin-bottom: 5px; }
+        h2 { color: #0d9488; border-bottom: 2px solid #99f6e4; padding-bottom: 6px; margin-top: 25px; font-size: 20px; }
+        h3 { color: #115e59; font-size: 16px; margin-top: 15px; }
+        p { margin: 6px 0; }
+        input, select, textarea, button { padding: 9px; margin: 6px; max-width: 95%; border: 1px solid #cbd5e1; border-radius: 5px; box-sizing: border-box; font-size: 14px; }
+        button, input[type="submit"], input[type="button"] { cursor: pointer; background: #0d9488; color: white; border: 0; border-radius: 5px; padding: 9px 18px; font-weight: bold; transition: background 0.2s; }
+        button:hover, input[type="submit"]:hover { background: #115e59; }
+        table { margin: 15px auto; border-collapse: collapse; width: 98%; background: #fff; }
+        th, td { border: 1px solid #e2e8f0; padding: 10px; text-align: center; font-size: 14px; }
+        th { background-color: #ccfbf1; color: #115e59; }
+        tr:nth-child(even) { background-color: #f8fafc; }
+        section { padding: 14px 0; border-bottom: 1px solid #e2e8f0; text-align: center; }
+        .message { background-color: #ccfbf1; color: #115e59; padding: 10px; border-radius: 6px; font-weight: bold; margin: 12px 0; display: inline-block; min-width: 60%; }
+        .badge { display: inline-block; padding: 4px 8px; border-radius: 4px; font-size: 12px; font-weight: bold; background: #dcfce7; color: #166534; }
+        .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 15px; margin: 15px 0; }
+        .card { border: 1px solid #99f6e4; border-radius: 8px; padding: 15px; background: #ffffff; text-align: left; box-shadow: 0 2px 6px rgba(0,0,0,0.03); }
+        .card h4 { margin: 0 0 6px 0; color: #0d9488; }
+        @media (max-width: 600px) { body { padding: 8px; } .container { padding: 12px; } table { font-size: 12px; display: block; overflow-x: auto; } th, td { padding: 6px; } }
+    </style>
+</head>
+<body>
+<div class="container" id="mainContainer">
+    <h1>VetCure</h1>
+    <p>Livestock Telemedicine, Pet Symptom Uploads & Regional Disease Analytics</p>
+    <p id="message" class="message">Welcome to VetCure! All operations running seamlessly.</p>
+
+    <!-- Sections -->
+    
+    <section id="regSection">
+        <h2>1. Farmer & Veterinarian Account Management</h2>
+        <form id="regForm">
+            <input type="text" id="regForm_fullname" placeholder="Full Name" required> <br><textarea id="regForm_txt" rows="2" cols="45" placeholder="Email Address..." required></textarea><br> <input type="text" id="regForm_phone" placeholder="Phone" required> <select id="regForm_role">
+                        <option value="Farmer">Farmer</option><option value="Veterinarian">Veterinarian</option>
+                    </select><br>
+            <button type="submit">Register Account</button>
+        </form>
+    </section>
+    
+    <section id="complaintSection">
+        <h2>2. Post Animal Complaint & Upload Clinical Signs</h2>
+        <form id="postForm">
+            <select id="postForm_animaltype">
+                        <option value="Cattle">Cattle</option><option value="Goat">Goat</option><option value="Dog">Dog</option><option value="Poultry">Poultry</option>
+                    </select> <input type="text" id="postForm_observedsignssymptoms" placeholder="Observed Signs & Symptoms" required> <select id="postForm_clinictype">
+                        <option value="Govt CVH (Free)">Govt CVH (Free)</option><option value="Private (₹250)">Private (₹250)</option>
+                    </select> <input type="text" id="postForm_uploadmediafile" placeholder="Upload Media File" required><br>
+            <button type="submit">Submit Clinical Consultation</button>
+        </form>
+    </section>
+    
+    <section id="paymentSection">
+        <h2>3. Veterinary Fee Payment Gateway</h2>
+        <form id="payForm">
+            <input type="text" id="payForm_consultationid" placeholder="Consultation ID" required> <input type="number" id="payForm_doctorbankaccounteasypaisaupi" placeholder="Doctor Bank Account / EasyPaisa / UPI" required> <input type="number" id="payForm_amount" placeholder="Amount (₹)" required><br>
+            <button type="submit">Confirm Doctor Fee</button>
+        </form>
+    </section>
+    
+    <section id="doctorSection">
+        <h2>4. Doctor Solution Portal - Post Treatment & Cure</h2>
+        <form id="docForm">
+            <input type="text" id="docForm_consultationid" placeholder="Consultation ID" required> <input type="text" id="docForm_diagnosisprescribedmedicines" placeholder="Diagnosis & Prescribed Medicines" required> <input type="text" id="docForm_dosagecarenotes" placeholder="Dosage & Care Notes" required><br>
+            <button type="submit">Issue Digital Prescription</button>
+        </form>
+    </section>
+    
+    <section id="analyticsSection">
+        <h2>5. Regional Livestock Disease Outbreak Analytics</h2>
+        <form id="analysisForm">
+            <input type="text" id="analysisForm_districtregionname" placeholder="District / Region Name" required><br>
+            <button type="submit">Run Epidemiological Analysis</button>
+        </form>
+    </section>
+    
+
+    <!-- Showcase Cards -->
+    <section>
+        <h2>Featured Catalog & Real-Time Records</h2>
+        <div class="card-grid">
+            
+            <div class="card">
+                <h4>⭐ Bovine Mastitis & Milk Yield Drop</h4>
+                <p><strong>Dairy Cattle | Private Clinic</strong></p>
+                <p><strong>Rate / Metric:</strong> Fee: ₹250</p>
+                <p style="font-size: 13px; color: #555;">Antibiotic intramammary infusion prescribed with calcium supplements.</p>
+                <button type="button" onclick="quickAction('Bovine Mastitis & Milk Yield Drop')">Select / Details</button>
+            </div>
+            
+            <div class="card">
+                <h4>⭐ Foot and Mouth Disease (FMD) Screening</h4>
+                <p><strong>Govt CVH Clinic | Free</strong></p>
+                <p><strong>Rate / Metric:</strong> Free Govt Service</p>
+                <p style="font-size: 13px; color: #555;">Preventative vaccination schedule issued alongside antiseptic foot dip regimen.</p>
+                <button type="button" onclick="quickAction('Foot and Mouth Disease (FMD) Screening')">Select / Details</button>
+            </div>
+            
+            <div class="card">
+                <h4>⭐ Canine Parvovirus Emergency Care</h4>
+                <p><strong>Domestic Pets | Private Specialist</strong></p>
+                <p><strong>Rate / Metric:</strong> Fee: ₹400</p>
+                <p style="font-size: 13px; color: #555;">IV fluid electrolyte replacement plan and antiemetic supportive therapy.</p>
+                <button type="button" onclick="quickAction('Canine Parvovirus Emergency Care')">Select / Details</button>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- Real-Time Activity Log -->
+    <section>
+        <h2>System Activity & Live Transaction History</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Ref ID</th>
+                    <th>User / Actor</th>
+                    <th>Operation / Item</th>
+                    <th>Timestamp</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody id="activityTableBody">
+                <tr><td colspan="5">No transactions recorded in current session.</td></tr>
+            </tbody>
+        </table>
+    </section>
+
+    <p style="color: #64748b; font-size: 13px; margin-top: 25px;">VetCure System - Academic Year 2026</p>
+</div>
+
+<script>
+    const msg = document.getElementById("message");
+    let logs = [];
+
+    function showMessage(text) { msg.textContent = text; }
+
+    function quickAction(item) {
+        showMessage("Selected: " + item + ". Ready for processing.");
+    }
+
+    function addLog(ref, actor, op, status) {
+        const tbody = document.getElementById("activityTableBody");
+        if (logs.length === 0) tbody.innerHTML = "";
+        logs.unshift({ ref, actor, op, time: new Date().toLocaleTimeString(), status });
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+            <td><strong>${ref}</strong></td>
+            <td>${actor}</td>
+            <td>${op}</td>
+            <td>${new Date().toLocaleTimeString()}</td>
+            <td><span class="badge">${status}</span></td>
+        `;
+        tbody.prepend(tr);
+    }
+
+    // Attach submit listeners to each form
+    
+    document.getElementById("regForm").addEventListener("submit", function(ev) {
+        ev.preventDefault();
+        const refId = "VET-" + Math.floor(1000 + Math.random() * 9000);
+        showMessage("Farmer & Veterinarian Account Management: Processed successfully! Reference ID: " + refId);
+        addLog(refId, "Authorized User", "Farmer & Veterinarian Account Management", "Completed");
+        this.reset();
+    });
+    
+    document.getElementById("postForm").addEventListener("submit", function(ev) {
+        ev.preventDefault();
+        const refId = "VET-" + Math.floor(1000 + Math.random() * 9000);
+        showMessage("Post Animal Complaint & Upload Clinical Signs: Processed successfully! Reference ID: " + refId);
+        addLog(refId, "Authorized User", "Post Animal Complaint & Upload Clinical Signs", "Completed");
+        this.reset();
+    });
+    
+    document.getElementById("payForm").addEventListener("submit", function(ev) {
+        ev.preventDefault();
+        const refId = "VET-" + Math.floor(1000 + Math.random() * 9000);
+        showMessage("Veterinary Fee Payment Gateway: Processed successfully! Reference ID: " + refId);
+        addLog(refId, "Authorized User", "Veterinary Fee Payment Gateway", "Completed");
+        this.reset();
+    });
+    
+    document.getElementById("docForm").addEventListener("submit", function(ev) {
+        ev.preventDefault();
+        const refId = "VET-" + Math.floor(1000 + Math.random() * 9000);
+        showMessage("Doctor Solution Portal - Post Treatment & Cure: Processed successfully! Reference ID: " + refId);
+        addLog(refId, "Authorized User", "Doctor Solution Portal - Post Treatment & Cure", "Completed");
+        this.reset();
+    });
+    
+    document.getElementById("analysisForm").addEventListener("submit", function(ev) {
+        ev.preventDefault();
+        const refId = "VET-" + Math.floor(1000 + Math.random() * 9000);
+        showMessage("Regional Livestock Disease Outbreak Analytics: Processed successfully! Reference ID: " + refId);
+        addLog(refId, "Authorized User", "Regional Livestock Disease Outbreak Analytics", "Completed");
+        this.reset();
+    });
+    
+</script>
+</body>
+</html>

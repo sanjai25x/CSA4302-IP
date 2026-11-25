@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ram Infotech - Laptop Sales, Configuration & Service Center</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f8fafc; text-align: center; margin: 0; padding: 20px; color: #1e293b; }
+        .container { max-width: 920px; margin: auto; background: #ffffff; padding: 25px; border-radius: 12px; box-shadow: 0 4px 14px rgba(0,0,0,0.08); }
+        h1 { color: #1e3a8a; margin-bottom: 5px; }
+        h2 { color: #2563eb; border-bottom: 2px solid #bfdbfe; padding-bottom: 6px; margin-top: 25px; font-size: 20px; }
+        h3 { color: #1e3a8a; font-size: 16px; margin-top: 15px; }
+        p { margin: 6px 0; }
+        input, select, textarea, button { padding: 9px; margin: 6px; max-width: 95%; border: 1px solid #cbd5e1; border-radius: 5px; box-sizing: border-box; font-size: 14px; }
+        button, input[type="submit"], input[type="button"] { cursor: pointer; background: #2563eb; color: white; border: 0; border-radius: 5px; padding: 9px 18px; font-weight: bold; transition: background 0.2s; }
+        button:hover, input[type="submit"]:hover { background: #1e3a8a; }
+        table { margin: 15px auto; border-collapse: collapse; width: 98%; background: #fff; }
+        th, td { border: 1px solid #e2e8f0; padding: 10px; text-align: center; font-size: 14px; }
+        th { background-color: #eff6ff; color: #1e3a8a; }
+        tr:nth-child(even) { background-color: #f8fafc; }
+        section { padding: 14px 0; border-bottom: 1px solid #e2e8f0; text-align: center; }
+        .message { background-color: #eff6ff; color: #1e3a8a; padding: 10px; border-radius: 6px; font-weight: bold; margin: 12px 0; display: inline-block; min-width: 60%; }
+        .badge { display: inline-block; padding: 4px 8px; border-radius: 4px; font-size: 12px; font-weight: bold; background: #dcfce7; color: #166534; }
+        .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 15px; margin: 15px 0; }
+        .card { border: 1px solid #bfdbfe; border-radius: 8px; padding: 15px; background: #ffffff; text-align: left; box-shadow: 0 2px 6px rgba(0,0,0,0.03); }
+        .card h4 { margin: 0 0 6px 0; color: #2563eb; }
+        @media (max-width: 600px) { body { padding: 8px; } .container { padding: 12px; } table { font-size: 12px; display: block; overflow-x: auto; } th, td { padding: 6px; } }
+    </style>
+</head>
+<body>
+<div class="container" id="mainContainer">
+    <h1>Ram Infotech</h1>
+    <p>Laptops Sales, Custom PC Builds, Authorized Repairs & Corporate Rental</p>
+    <p id="message" class="message">Welcome to Ram Infotech! Academic Lab Project - 2026.</p>
+
+    <!-- Interactive Sections -->
+    
+    <section id="regSection">
+        <h2>1. Customer & Corporate Registration</h2>
+        <form id="regForm">
+            <input type="text" id="regForm_clientname" placeholder="Client Name" required> <br><textarea id="regForm_txt" rows="2" cols="45" placeholder="Email Address..." required></textarea><br> <input type="text" id="regForm_phone" placeholder="Phone" required> <select id="regForm_account">
+                        <option value="Personal Consumer">Personal Consumer</option><option value="Corporate Client">Corporate Client</option>
+                    </select><br>
+            <button type="submit">Create Profile</button>
+        </form>
+    </section>
+    
+    <section id="storeSection">
+        <h2>2. Online Laptop Store - Select & Custom Configure</h2>
+        <form id="storeForm">
+            <input type="text" id="storeForm_laptopmodel" placeholder="Laptop Model" required> <select id="storeForm_processor">
+                        <option value="Intel Core i7">Intel Core i7</option><option value="Intel Core i9">Intel Core i9</option><option value="AMD Ryzen 7">AMD Ryzen 7</option><option value="Apple M3">Apple M3</option>
+                    </select> <select id="storeForm_ram">
+                        <option value="16GB">16GB</option><option value="32GB">32GB</option><option value="64GB">64GB</option>
+                    </select> <select id="storeForm_ssdstorage">
+                        <option value="512GB">512GB</option><option value="1TB">1TB</option><option value="2TB">2TB</option>
+                    </select><br>
+            <button type="submit">Order Laptop Configuration</button>
+        </form>
+    </section>
+    
+    <section id="serviceSection">
+        <h2>3. Service Center - Book Repair & Diagnostics</h2>
+        <form id="serviceForm">
+            <input type="text" id="serviceForm_customername" placeholder="Customer Name" required> <input type="text" id="serviceForm_laptopbrandserialno" placeholder="Laptop Brand & Serial No" required> <select id="serviceForm_issue">
+                        <option value="Screen Replacement">Screen Replacement</option><option value="Motherboard Issue">Motherboard Issue</option><option value="OS Reinstall">OS Reinstall</option><option value="Battery">Battery</option>
+                    </select> <label>Preferred Date: <input type="date" id="serviceForm_date" required></label><br>
+            <button type="submit">Book Service Appointment</button>
+        </form>
+    </section>
+    
+    <section id="trackServiceSection">
+        <h2>4. Track Laptop Repair Status</h2>
+        <form id="trackServiceForm">
+            <input type="text" id="trackServiceForm_serviceticketidegramsvc2041" placeholder="Service Ticket ID (e.g. RAM-SVC-2041)" required><br>
+            <button type="submit">Check Repair Progress</button>
+        </form>
+    </section>
+    
+    <section id="adminSection">
+        <h2>5. Admin Center - Stock Maintenance & Rental Contracts</h2>
+        <form id="adminForm">
+            <input type="text" id="adminForm_laptopmodel" placeholder="Laptop Model" required> <input type="number" id="adminForm_unitprice" placeholder="Unit Price (₹)" required> <input type="number" id="adminForm_stockcount" placeholder="Stock Count" required> <input type="number" id="adminForm_monthlyrentalrate" placeholder="Monthly Rental Rate (₹)" required><br>
+            <button type="submit">Save Inventory Record</button>
+        </form>
+    </section>
+    
+
+    <!-- Featured Items -->
+    <section>
+        <h2>Featured Catalog & Live Repository</h2>
+        <div class="card-grid">
+            
+            <div class="card">
+                <h4>⭐ Dell Latitude Pro 7440</h4>
+                <p><strong>Business Ultrabook | Intel i7 13th Gen</strong></p>
+                <p><strong>Metrics / Fee:</strong> ₹89,990 | Rent: ₹3,200/mo</p>
+                <p style="font-size: 13px; color: #555;">16GB LPDDR5, 512GB NVMe, FHD+ IPS display, 3-year onsite hardware warranty.</p>
+                <button type="button" onclick="quickAction('Dell Latitude Pro 7440')">Select / Explore</button>
+            </div>
+            
+            <div class="card">
+                <h4>⭐ ASUS ROG Strix Gaming Laptop</h4>
+                <p><strong>Gaming Beast | RTX 4070 8GB</strong></p>
+                <p><strong>Metrics / Fee:</strong> ₹1,44,990 | Rent: ₹5,500/mo</p>
+                <p style="font-size: 13px; color: #555;">AMD Ryzen 9, 32GB RAM, 1TB Gen4 SSD, 240Hz QHD display with liquid metal cooling.</p>
+                <button type="button" onclick="quickAction('ASUS ROG Strix Gaming Laptop')">Select / Explore</button>
+            </div>
+            
+            <div class="card">
+                <h4>⭐ Apple MacBook Air 15-inch M3</h4>
+                <p><strong>Creatives & Productivity | Apple Silicon</strong></p>
+                <p><strong>Metrics / Fee:</strong> ₹1,34,900 | Rent: ₹4,800/mo</p>
+                <p style="font-size: 13px; color: #555;">Liquid Retina display, 18 hours battery life, MagSafe charging, fanless silent chassis.</p>
+                <button type="button" onclick="quickAction('Apple MacBook Air 15-inch M3')">Select / Explore</button>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- Activity Log Table -->
+    <section>
+        <h2>System Activity & Live Transaction History</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Ref ID</th>
+                    <th>User / Actor</th>
+                    <th>Action / Module</th>
+                    <th>Timestamp</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody id="activityTableBody">
+                <tr><td colspan="5">No transactions recorded in current session.</td></tr>
+            </tbody>
+        </table>
+    </section>
+
+    <p style="color: #64748b; font-size: 13px; margin-top: 25px;">Ram Infotech - Internet Programming Laboratory 2026</p>
+</div>
+
+<script>
+    const msg = document.getElementById("message");
+    let logs = [];
+
+    function showMessage(text) { msg.textContent = text; }
+
+    function quickAction(item) {
+        showMessage("Selected: " + item + ". Ready for processing.");
+    }
+
+    function addLog(ref, actor, op, status) {
+        const tbody = document.getElementById("activityTableBody");
+        if (logs.length === 0) tbody.innerHTML = "";
+        logs.unshift({ ref, actor, op, time: new Date().toLocaleTimeString(), status });
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+            <td><strong>${ref}</strong></td>
+            <td>${actor}</td>
+            <td>${op}</td>
+            <td>${new Date().toLocaleTimeString()}</td>
+            <td><span class="badge">${status}</span></td>
+        `;
+        tbody.prepend(tr);
+    }
+
+    // Attach submit listeners to each form
+    
+    document.getElementById("regForm").addEventListener("submit", function(ev) {
+        ev.preventDefault();
+        const refId = "RAM-" + Math.floor(1000 + Math.random() * 9000);
+        showMessage("Customer & Corporate Registration: Processed successfully! Reference ID: " + refId);
+        addLog(refId, "Authorized User", "Customer & Corporate Registration", "Completed");
+        this.reset();
+    });
+    
+    document.getElementById("storeForm").addEventListener("submit", function(ev) {
+        ev.preventDefault();
+        const refId = "RAM-" + Math.floor(1000 + Math.random() * 9000);
+        showMessage("Online Laptop Store - Select & Custom Configure: Processed successfully! Reference ID: " + refId);
+        addLog(refId, "Authorized User", "Online Laptop Store - Select & Custom Configure", "Completed");
+        this.reset();
+    });
+    
+    document.getElementById("serviceForm").addEventListener("submit", function(ev) {
+        ev.preventDefault();
+        const refId = "RAM-" + Math.floor(1000 + Math.random() * 9000);
+        showMessage("Service Center - Book Repair & Diagnostics: Processed successfully! Reference ID: " + refId);
+        addLog(refId, "Authorized User", "Service Center - Book Repair & Diagnostics", "Completed");
+        this.reset();
+    });
+    
+    document.getElementById("trackServiceForm").addEventListener("submit", function(ev) {
+        ev.preventDefault();
+        const refId = "RAM-" + Math.floor(1000 + Math.random() * 9000);
+        showMessage("Track Laptop Repair Status: Processed successfully! Reference ID: " + refId);
+        addLog(refId, "Authorized User", "Track Laptop Repair Status", "Completed");
+        this.reset();
+    });
+    
+    document.getElementById("adminForm").addEventListener("submit", function(ev) {
+        ev.preventDefault();
+        const refId = "RAM-" + Math.floor(1000 + Math.random() * 9000);
+        showMessage("Admin Center - Stock Maintenance & Rental Contracts: Processed successfully! Reference ID: " + refId);
+        addLog(refId, "Authorized User", "Admin Center - Stock Maintenance & Rental Contracts", "Completed");
+        this.reset();
+    });
+    
+</script>
+</body>
+</html>

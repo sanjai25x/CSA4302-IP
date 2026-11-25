@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IJSSE - International Journal Publisher Portal</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f0fdfa; text-align: center; margin: 0; padding: 20px; color: #1e293b; }
+        .container { max-width: 920px; margin: auto; background: #ffffff; padding: 25px; border-radius: 12px; box-shadow: 0 4px 14px rgba(0,0,0,0.08); }
+        h1 { color: #115e59; margin-bottom: 5px; }
+        h2 { color: #0f766e; border-bottom: 2px solid #99f6e4; padding-bottom: 6px; margin-top: 25px; font-size: 20px; }
+        h3 { color: #115e59; font-size: 16px; margin-top: 15px; }
+        p { margin: 6px 0; }
+        input, select, textarea, button { padding: 9px; margin: 6px; max-width: 95%; border: 1px solid #cbd5e1; border-radius: 5px; box-sizing: border-box; font-size: 14px; }
+        button, input[type="submit"], input[type="button"] { cursor: pointer; background: #0f766e; color: white; border: 0; border-radius: 5px; padding: 9px 18px; font-weight: bold; transition: background 0.2s; }
+        button:hover, input[type="submit"]:hover { background: #115e59; }
+        table { margin: 15px auto; border-collapse: collapse; width: 98%; background: #fff; }
+        th, td { border: 1px solid #e2e8f0; padding: 10px; text-align: center; font-size: 14px; }
+        th { background-color: #ccfbf1; color: #115e59; }
+        tr:nth-child(even) { background-color: #f8fafc; }
+        section { padding: 14px 0; border-bottom: 1px solid #e2e8f0; text-align: center; }
+        .message { background-color: #ccfbf1; color: #115e59; padding: 10px; border-radius: 6px; font-weight: bold; margin: 12px 0; display: inline-block; min-width: 60%; }
+        .badge { display: inline-block; padding: 4px 8px; border-radius: 4px; font-size: 12px; font-weight: bold; background: #dcfce7; color: #166534; }
+        .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 15px; margin: 15px 0; }
+        .card { border: 1px solid #99f6e4; border-radius: 8px; padding: 15px; background: #ffffff; text-align: left; box-shadow: 0 2px 6px rgba(0,0,0,0.03); }
+        .card h4 { margin: 0 0 6px 0; color: #0f766e; }
+        @media (max-width: 600px) { body { padding: 8px; } .container { padding: 12px; } table { font-size: 12px; display: block; overflow-x: auto; } th, td { padding: 6px; } }
+    </style>
+</head>
+<body>
+<div class="container" id="mainContainer">
+    <h1>IJSSE - Journal Publisher</h1>
+    <p>International Journal of Scientific & Social Excellence (Print ISSN: 2395-1443 | Online: 2395-1451)</p>
+    <p id="message" class="message">Welcome to IJSSE - Journal Publisher! Academic Lab Project - 2026.</p>
+
+    <!-- Interactive Sections -->
+    
+    <section id="aboutSection">
+        <h2>1. About Journal, Scope & Publication Ethics</h2>
+        <form id="aboutForm">
+            <select id="aboutForm_inquiry">
+                        <option value="Aims & Scope">Aims & Scope</option><option value="Indexing">Indexing</option><option value="Ethics Statement">Ethics Statement</option>
+                    </select><br>
+            <button type="submit">View Journal Policy</button>
+        </form>
+    </section>
+    
+    <section id="authorSection">
+        <h2>2. Author Manuscript Submission & Tracking</h2>
+        <form id="authorForm">
+            <input type="text" id="authorForm_correspondingauthorname" placeholder="Corresponding Author Name" required> <input type="text" id="authorForm_manuscripttitle" placeholder="Manuscript Title" required> <br><textarea id="authorForm_txt" rows="2" cols="45" placeholder="Abstract & Keywords..." required></textarea><br> <select id="authorForm_researchdiscipline">
+                        <option value="Computer Science">Computer Science</option><option value="Engineering">Engineering</option><option value="Social Sciences">Social Sciences</option>
+                    </select><br>
+            <button type="submit">Submit Research Manuscript</button>
+        </form>
+    </section>
+    
+    <section id="reviewSection">
+        <h2>3. Peer-Reviewer Evaluation Dashboard</h2>
+        <form id="reviewForm">
+            <input type="text" id="reviewForm_manuscriptid" placeholder="Manuscript ID" required> <input type="text" id="reviewForm_reviewerscore1100" placeholder="Reviewer Score (1-100)" required> <select id="reviewForm_recommendation">
+                        <option value="Accept">Accept</option><option value="Major Revisions">Major Revisions</option><option value="Reject">Reject</option>
+                    </select><br>
+            <button type="submit">Submit Reviewer Report</button>
+        </form>
+    </section>
+    
+    <section id="archiveSection">
+        <h2>4. Current Issue & Open-Access Research Archive</h2>
+        <form id="archiveForm">
+            <input type="text" id="archiveForm_volumeissuenumberegvol12issue4" placeholder="Volume & Issue Number (e.g. Vol 12, Issue 4)" required> <input type="text" id="archiveForm_searchtopickeyword" placeholder="Search Topic / Keyword" required><br>
+            <button type="submit">Search Paper Archive</button>
+        </form>
+    </section>
+    
+    <section id="callSection">
+        <h2>5. Call for Papers & Newsletter Subscription</h2>
+        <form id="callForm">
+            <input type="text" id="callForm_researcheremail" placeholder="Researcher Email" required> <input type="text" id="callForm_fieldofresearch" placeholder="Field of Research" required><br>
+            <button type="submit">Subscribe to Call for Papers</button>
+        </form>
+    </section>
+    
+
+    <!-- Featured Items -->
+    <section>
+        <h2>Featured Catalog & Live Repository</h2>
+        <div class="card-grid">
+            
+            <div class="card">
+                <h4>⭐ Deep Learning Frameworks in Early Oncology Detection</h4>
+                <p><strong>Vol 14, Issue 2 (Current Issue)</strong></p>
+                <p><strong>Metrics / Fee:</strong> DOI: 10.3126/ijsse.2026.04</p>
+                <p style="font-size: 13px; color: #555;">Peer-reviewed study achieving 98.4% diagnostic accuracy across radiological scans.</p>
+                <button type="button" onclick="quickAction('Deep Learning Frameworks in Early Oncology Detection')">Select / Explore</button>
+            </div>
+            
+            <div class="card">
+                <h4>⭐ Decentralized Smart Grids using Zero-Knowledge Rollups</h4>
+                <p><strong>Most Cited Article | 340+ Citations</strong></p>
+                <p><strong>Metrics / Fee:</strong> DOI: 10.3126/ijsse.2025.11</p>
+                <p style="font-size: 13px; color: #555;">Novel cryptographic architecture for peer-to-peer renewable energy trading.</p>
+                <button type="button" onclick="quickAction('Decentralized Smart Grids using Zero-Knowledge Rollups')">Select / Explore</button>
+            </div>
+            
+            <div class="card">
+                <h4>⭐ Urban Migration & Economic Resilience in Post-Industrial Cities</h4>
+                <p><strong>Social Sciences Track</strong></p>
+                <p><strong>Metrics / Fee:</strong> DOI: 10.3126/ijsse.2025.08</p>
+                <p style="font-size: 13px; color: #555;">Empirical demographic analysis across 25 developing global metropolises.</p>
+                <button type="button" onclick="quickAction('Urban Migration & Economic Resilience in Post-Industrial Cities')">Select / Explore</button>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- Activity Log Table -->
+    <section>
+        <h2>System Activity & Live Transaction History</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Ref ID</th>
+                    <th>User / Actor</th>
+                    <th>Action / Module</th>
+                    <th>Timestamp</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody id="activityTableBody">
+                <tr><td colspan="5">No transactions recorded in current session.</td></tr>
+            </tbody>
+        </table>
+    </section>
+
+    <p style="color: #64748b; font-size: 13px; margin-top: 25px;">IJSSE - Journal Publisher - Internet Programming Laboratory 2026</p>
+</div>
+
+<script>
+    const msg = document.getElementById("message");
+    let logs = [];
+
+    function showMessage(text) { msg.textContent = text; }
+
+    function quickAction(item) {
+        showMessage("Selected: " + item + ". Ready for processing.");
+    }
+
+    function addLog(ref, actor, op, status) {
+        const tbody = document.getElementById("activityTableBody");
+        if (logs.length === 0) tbody.innerHTML = "";
+        logs.unshift({ ref, actor, op, time: new Date().toLocaleTimeString(), status });
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+            <td><strong>${ref}</strong></td>
+            <td>${actor}</td>
+            <td>${op}</td>
+            <td>${new Date().toLocaleTimeString()}</td>
+            <td><span class="badge">${status}</span></td>
+        `;
+        tbody.prepend(tr);
+    }
+
+    // Attach submit listeners to each form
+    
+    document.getElementById("aboutForm").addEventListener("submit", function(ev) {
+        ev.preventDefault();
+        const refId = "IJS-" + Math.floor(1000 + Math.random() * 9000);
+        showMessage("About Journal, Scope & Publication Ethics: Processed successfully! Reference ID: " + refId);
+        addLog(refId, "Authorized User", "About Journal, Scope & Publication Ethics", "Completed");
+        this.reset();
+    });
+    
+    document.getElementById("authorForm").addEventListener("submit", function(ev) {
+        ev.preventDefault();
+        const refId = "IJS-" + Math.floor(1000 + Math.random() * 9000);
+        showMessage("Author Manuscript Submission & Tracking: Processed successfully! Reference ID: " + refId);
+        addLog(refId, "Authorized User", "Author Manuscript Submission & Tracking", "Completed");
+        this.reset();
+    });
+    
+    document.getElementById("reviewForm").addEventListener("submit", function(ev) {
+        ev.preventDefault();
+        const refId = "IJS-" + Math.floor(1000 + Math.random() * 9000);
+        showMessage("Peer-Reviewer Evaluation Dashboard: Processed successfully! Reference ID: " + refId);
+        addLog(refId, "Authorized User", "Peer-Reviewer Evaluation Dashboard", "Completed");
+        this.reset();
+    });
+    
+    document.getElementById("archiveForm").addEventListener("submit", function(ev) {
+        ev.preventDefault();
+        const refId = "IJS-" + Math.floor(1000 + Math.random() * 9000);
+        showMessage("Current Issue & Open-Access Research Archive: Processed successfully! Reference ID: " + refId);
+        addLog(refId, "Authorized User", "Current Issue & Open-Access Research Archive", "Completed");
+        this.reset();
+    });
+    
+    document.getElementById("callForm").addEventListener("submit", function(ev) {
+        ev.preventDefault();
+        const refId = "IJS-" + Math.floor(1000 + Math.random() * 9000);
+        showMessage("Call for Papers & Newsletter Subscription: Processed successfully! Reference ID: " + refId);
+        addLog(refId, "Authorized User", "Call for Papers & Newsletter Subscription", "Completed");
+        this.reset();
+    });
+    
+</script>
+</body>
+</html>

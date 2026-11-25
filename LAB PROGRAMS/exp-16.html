@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ComplainEase - Online Complaint Management Platform</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f8fafc; text-align: center; margin: 0; padding: 20px; color: #1e293b; }
+        .container { max-width: 920px; margin: auto; background: #ffffff; padding: 25px; border-radius: 12px; box-shadow: 0 4px 14px rgba(0,0,0,0.08); }
+        h1 { color: #1e293b; margin-bottom: 5px; }
+        h2 { color: #475569; border-bottom: 2px solid #cbd5e1; padding-bottom: 6px; margin-top: 25px; font-size: 20px; }
+        h3 { color: #1e293b; font-size: 16px; margin-top: 15px; }
+        p { margin: 6px 0; }
+        input, select, textarea, button { padding: 9px; margin: 6px; max-width: 95%; border: 1px solid #cbd5e1; border-radius: 5px; box-sizing: border-box; font-size: 14px; }
+        button, input[type="submit"], input[type="button"] { cursor: pointer; background: #475569; color: white; border: 0; border-radius: 5px; padding: 9px 18px; font-weight: bold; transition: background 0.2s; }
+        button:hover, input[type="submit"]:hover { background: #1e293b; }
+        table { margin: 15px auto; border-collapse: collapse; width: 98%; background: #fff; }
+        th, td { border: 1px solid #e2e8f0; padding: 10px; text-align: center; font-size: 14px; }
+        th { background-color: #f1f5f9; color: #1e293b; }
+        tr:nth-child(even) { background-color: #f8fafc; }
+        section { padding: 14px 0; border-bottom: 1px solid #e2e8f0; text-align: center; }
+        .message { background-color: #f1f5f9; color: #1e293b; padding: 10px; border-radius: 6px; font-weight: bold; margin: 12px 0; display: inline-block; min-width: 60%; }
+        .badge { display: inline-block; padding: 4px 8px; border-radius: 4px; font-size: 12px; font-weight: bold; background: #dcfce7; color: #166534; }
+        .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 15px; margin: 15px 0; }
+        .card { border: 1px solid #cbd5e1; border-radius: 8px; padding: 15px; background: #ffffff; text-align: left; box-shadow: 0 2px 6px rgba(0,0,0,0.03); }
+        .card h4 { margin: 0 0 6px 0; color: #475569; }
+        @media (max-width: 600px) { body { padding: 8px; } .container { padding: 12px; } table { font-size: 12px; display: block; overflow-x: auto; } th, td { padding: 6px; } }
+    </style>
+</head>
+<body>
+<div class="container" id="mainContainer">
+    <h1>ComplainEase</h1>
+    <p>Citizen Grievance Redressal, Location Tagging & Work Proof Updates</p>
+    <p id="message" class="message">Welcome to ComplainEase! All operations running seamlessly.</p>
+
+    <!-- Sections -->
+    
+    <section id="regSection">
+        <h2>1. Citizen & Officer Authentication</h2>
+        <form id="regForm">
+            <input type="text" id="regForm_fullname" placeholder="Full Name" required> <br><textarea id="regForm_txt" rows="2" cols="45" placeholder="Email Address..." required></textarea><br> <input type="text" id="regForm_phone" placeholder="Phone" required> <select id="regForm_role">
+                        <option value="Citizen">Citizen</option><option value="Officer">Officer</option>
+                    </select><br>
+            <button type="submit">Register Account</button>
+        </form>
+    </section>
+    
+    <section id="postSection">
+        <h2>2. File Grievance with Geo-Location Tagging</h2>
+        <form id="postForm">
+            <select id="postForm_complaintcategory">
+                        <option value="Road">Road</option><option value="Sanitation">Sanitation</option><option value="Water">Water</option><option value="Power">Power</option>
+                    </select> <input type="text" id="postForm_locationlandmark" placeholder="Location Landmark" required> <br><textarea id="postForm_txt" rows="2" cols="45" placeholder="Detailed Description..." required></textarea><br> <input type="text" id="postForm_documentphotoproof" placeholder="Document / Photo Proof" required><br>
+            <button type="submit">Submit Grievance Ticket</button>
+        </form>
+    </section>
+    
+    <section id="trackSection">
+        <h2>3. Track Complaint Status & Citizen Feedback</h2>
+        <form id="trackForm">
+            <input type="text" id="trackForm_grievanceticketid" placeholder="Grievance Ticket ID" required><br>
+            <button type="submit">Check Live Status</button>
+        </form>
+    </section>
+    
+    <section id="officerSection">
+        <h2>4. Officer Resolution Center - Proof of Work Upload</h2>
+        <form id="officerForm">
+            <input type="text" id="officerForm_ticketid" placeholder="Ticket ID" required> <br><textarea id="officerForm_txt" rows="2" cols="45" placeholder="Resolution Summary..." required></textarea><br> <select id="officerForm_status">
+                        <option value="In Progress">In Progress</option><option value="Resolved">Resolved</option>
+                    </select> <input type="text" id="officerForm_proofattachment" placeholder="Proof Attachment" required><br>
+            <button type="submit">Update Work Status</button>
+        </form>
+    </section>
+    
+    <section id="adminSection">
+        <h2>5. Administrator Governance & Officer Credential Setup</h2>
+        <form id="adminForm">
+            <input type="text" id="adminForm_officername" placeholder="Officer Name" required> <input type="text" id="adminForm_department" placeholder="Department" required> <input type="text" id="adminForm_assignedward" placeholder="Assigned Ward" required> <input type="password" id="adminForm_pass" placeholder="Generate Password" required><br>
+            <button type="submit">Issue Officer Credentials</button>
+        </form>
+    </section>
+    
+
+    <!-- Showcase Cards -->
+    <section>
+        <h2>Featured Catalog & Real-Time Records</h2>
+        <div class="card-grid">
+            
+            <div class="card">
+                <h4>⭐ Broken Water Main Pipeline</h4>
+                <p><strong>Water Supply | Ward 42</strong></p>
+                <p><strong>Rate / Metric:</strong> Status: In Progress</p>
+                <p style="font-size: 13px; color: #555;">Reported clean water leakage near Main Market junction. Field crew dispatched.</p>
+                <button type="button" onclick="quickAction('Broken Water Main Pipeline')">Select / Details</button>
+            </div>
+            
+            <div class="card">
+                <h4>⭐ Streetlight Outage on 5th Avenue</h4>
+                <p><strong>Electricity | Ward 18</strong></p>
+                <p><strong>Rate / Metric:</strong> Status: Resolved</p>
+                <p style="font-size: 13px; color: #555;">Replacement of LED bulb and faulty circuit breaker completed with work photo.</p>
+                <button type="button" onclick="quickAction('Streetlight Outage on 5th Avenue')">Select / Details</button>
+            </div>
+            
+            <div class="card">
+                <h4>⭐ Pothole Repair & Road Resurfacing</h4>
+                <p><strong>Civic Roads | Ward 09</strong></p>
+                <p><strong>Rate / Metric:</strong> Status: Work Assigned</p>
+                <p style="font-size: 13px; color: #555;">Bitumen hot-mix patching scheduled by junior engineer.</p>
+                <button type="button" onclick="quickAction('Pothole Repair & Road Resurfacing')">Select / Details</button>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- Real-Time Activity Log -->
+    <section>
+        <h2>System Activity & Live Transaction History</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Ref ID</th>
+                    <th>User / Actor</th>
+                    <th>Operation / Item</th>
+                    <th>Timestamp</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody id="activityTableBody">
+                <tr><td colspan="5">No transactions recorded in current session.</td></tr>
+            </tbody>
+        </table>
+    </section>
+
+    <p style="color: #64748b; font-size: 13px; margin-top: 25px;">ComplainEase System - Academic Year 2026</p>
+</div>
+
+<script>
+    const msg = document.getElementById("message");
+    let logs = [];
+
+    function showMessage(text) { msg.textContent = text; }
+
+    function quickAction(item) {
+        showMessage("Selected: " + item + ". Ready for processing.");
+    }
+
+    function addLog(ref, actor, op, status) {
+        const tbody = document.getElementById("activityTableBody");
+        if (logs.length === 0) tbody.innerHTML = "";
+        logs.unshift({ ref, actor, op, time: new Date().toLocaleTimeString(), status });
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+            <td><strong>${ref}</strong></td>
+            <td>${actor}</td>
+            <td>${op}</td>
+            <td>${new Date().toLocaleTimeString()}</td>
+            <td><span class="badge">${status}</span></td>
+        `;
+        tbody.prepend(tr);
+    }
+
+    // Attach submit listeners to each form
+    
+    document.getElementById("regForm").addEventListener("submit", function(ev) {
+        ev.preventDefault();
+        const refId = "COM-" + Math.floor(1000 + Math.random() * 9000);
+        showMessage("Citizen & Officer Authentication: Processed successfully! Reference ID: " + refId);
+        addLog(refId, "Authorized User", "Citizen & Officer Authentication", "Completed");
+        this.reset();
+    });
+    
+    document.getElementById("postForm").addEventListener("submit", function(ev) {
+        ev.preventDefault();
+        const refId = "COM-" + Math.floor(1000 + Math.random() * 9000);
+        showMessage("File Grievance with Geo-Location Tagging: Processed successfully! Reference ID: " + refId);
+        addLog(refId, "Authorized User", "File Grievance with Geo-Location Tagging", "Completed");
+        this.reset();
+    });
+    
+    document.getElementById("trackForm").addEventListener("submit", function(ev) {
+        ev.preventDefault();
+        const refId = "COM-" + Math.floor(1000 + Math.random() * 9000);
+        showMessage("Track Complaint Status & Citizen Feedback: Processed successfully! Reference ID: " + refId);
+        addLog(refId, "Authorized User", "Track Complaint Status & Citizen Feedback", "Completed");
+        this.reset();
+    });
+    
+    document.getElementById("officerForm").addEventListener("submit", function(ev) {
+        ev.preventDefault();
+        const refId = "COM-" + Math.floor(1000 + Math.random() * 9000);
+        showMessage("Officer Resolution Center - Proof of Work Upload: Processed successfully! Reference ID: " + refId);
+        addLog(refId, "Authorized User", "Officer Resolution Center - Proof of Work Upload", "Completed");
+        this.reset();
+    });
+    
+    document.getElementById("adminForm").addEventListener("submit", function(ev) {
+        ev.preventDefault();
+        const refId = "COM-" + Math.floor(1000 + Math.random() * 9000);
+        showMessage("Administrator Governance & Officer Credential Setup: Processed successfully! Reference ID: " + refId);
+        addLog(refId, "Authorized User", "Administrator Governance & Officer Credential Setup", "Completed");
+        this.reset();
+    });
+    
+</script>
+</body>
+</html>

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReNewMarket - Second-Hand Goods Marketplace</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f0fdf4; text-align: center; margin: 0; padding: 20px; color: #1e293b; }
+        .container { max-width: 920px; margin: auto; background: #ffffff; padding: 25px; border-radius: 12px; box-shadow: 0 4px 14px rgba(0,0,0,0.08); }
+        h1 { color: #065f46; margin-bottom: 5px; }
+        h2 { color: #059669; border-bottom: 2px solid #a7f3d0; padding-bottom: 6px; margin-top: 25px; font-size: 20px; }
+        h3 { color: #065f46; font-size: 16px; margin-top: 15px; }
+        p { margin: 6px 0; }
+        input, select, textarea, button { padding: 9px; margin: 6px; max-width: 95%; border: 1px solid #cbd5e1; border-radius: 5px; box-sizing: border-box; font-size: 14px; }
+        button, input[type="submit"], input[type="button"] { cursor: pointer; background: #059669; color: white; border: 0; border-radius: 5px; padding: 9px 18px; font-weight: bold; transition: background 0.2s; }
+        button:hover, input[type="submit"]:hover { background: #065f46; }
+        table { margin: 15px auto; border-collapse: collapse; width: 98%; background: #fff; }
+        th, td { border: 1px solid #e2e8f0; padding: 10px; text-align: center; font-size: 14px; }
+        th { background-color: #d1fae5; color: #065f46; }
+        tr:nth-child(even) { background-color: #f8fafc; }
+        section { padding: 14px 0; border-bottom: 1px solid #e2e8f0; text-align: center; }
+        .message { background-color: #d1fae5; color: #065f46; padding: 10px; border-radius: 6px; font-weight: bold; margin: 12px 0; display: inline-block; min-width: 60%; }
+        .badge { display: inline-block; padding: 4px 8px; border-radius: 4px; font-size: 12px; font-weight: bold; background: #dcfce7; color: #166534; }
+        .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 15px; margin: 15px 0; }
+        .card { border: 1px solid #a7f3d0; border-radius: 8px; padding: 15px; background: #ffffff; text-align: left; box-shadow: 0 2px 6px rgba(0,0,0,0.03); }
+        .card h4 { margin: 0 0 6px 0; color: #059669; }
+        @media (max-width: 600px) { body { padding: 8px; } .container { padding: 12px; } table { font-size: 12px; display: block; overflow-x: auto; } th, td { padding: 6px; } }
+    </style>
+</head>
+<body>
+<div class="container" id="mainContainer">
+    <h1>ReNewMarket</h1>
+    <p>Pre-Loved Goods, Counter-Offer Negotiation & Order Tracking</p>
+    <p id="message" class="message">Welcome to ReNewMarket! All operations running seamlessly.</p>
+
+    <!-- Sections -->
+    
+    <section id="regSection">
+        <h2>1. Buyer & Seller Account Management</h2>
+        <form id="regForm">
+            <input type="text" id="regForm_fullname" placeholder="Full Name" required> <br><textarea id="regForm_txt" rows="2" cols="45" placeholder="Email Address..." required></textarea><br> <input type="text" id="regForm_phone" placeholder="Phone" required> <select id="regForm_role">
+                        <option value="Buyer">Buyer</option><option value="Seller">Seller</option>
+                    </select><br>
+            <button type="submit">Register User</button>
+        </form>
+    </section>
+    
+    <section id="postSection">
+        <h2>2. Seller Commodity Management - Post Pre-Loved Item</h2>
+        <form id="postForm">
+            <input type="text" id="postForm_itemname" placeholder="Item Name" required> <select id="postForm_category">
+                        <option value="Electronics">Electronics</option><option value="Furniture">Furniture</option><option value="Clothing">Clothing</option>
+                    </select> <select id="postForm_condition">
+                        <option value="Like New">Like New</option><option value="Good">Good</option>
+                    </select> <input type="number" id="postForm_price" placeholder="Price (₹)" required> <input type="text" id="postForm_city" placeholder="City" required><br>
+            <button type="submit">Publish Listing</button>
+        </form>
+    </section>
+    
+    <section id="searchSection">
+        <h2>3. Browse Marketplace & Negotiate Price</h2>
+        <form id="searchForm">
+            <input type="text" id="searchForm_searchcommodity" placeholder="Search Commodity" required> <input type="text" id="searchForm_categoryfilter" placeholder="Category Filter" required><br>
+            <button type="submit">Find Items</button>
+        </form>
+    </section>
+    
+    <section id="offerSection">
+        <h2>4. Price Counter-Offer & Order Placement</h2>
+        <form id="offerForm">
+            <input type="text" id="offerForm_selecteditem" placeholder="Selected Item" required> <input type="number" id="offerForm_counteroffer" placeholder="Counter Offer (₹)" required> <input type="text" id="offerForm_buyername" placeholder="Buyer Name" required> <br><textarea id="offerForm_txt" rows="2" cols="45" placeholder="Delivery Address..." required></textarea><br><br>
+            <button type="submit">Submit Offer & Buy</button>
+        </form>
+    </section>
+    
+    <section id="adminSection">
+        <h2>5. Administrator Category & Order Logistics Control</h2>
+        <form id="adminForm">
+            <input type="text" id="adminForm_newcategoryname" placeholder="New Category Name" required> <label>Order ID to Update: <input type="date" id="adminForm_date" required></label> <select id="adminForm_status">
+                        <option value="Placed">Placed</option><option value="Shipped">Shipped</option><option value="Received">Received</option>
+                    </select><br>
+            <button type="submit">Update Logistics</button>
+        </form>
+    </section>
+    
+
+    <!-- Showcase Cards -->
+    <section>
+        <h2>Featured Catalog & Real-Time Records</h2>
+        <div class="card-grid">
+            
+            <div class="card">
+                <h4>⭐ Sony Alpha A6000 Mirrorless Camera</h4>
+                <p><strong>Electronics | Like New</strong></p>
+                <p><strong>Rate / Metric:</strong> ₹28,500</p>
+                <p style="font-size: 13px; color: #555;">Includes 16-50mm kit lens, 2 extra batteries, and 64GB high speed SD card.</p>
+                <button type="button" onclick="quickAction('Sony Alpha A6000 Mirrorless Camera')">Select / Details</button>
+            </div>
+            
+            <div class="card">
+                <h4>⭐ Solid Sheesham Wood 6-Seater Dining Table</h4>
+                <p><strong>Furniture | Gently Used</strong></p>
+                <p><strong>Rate / Metric:</strong> ₹14,000</p>
+                <p style="font-size: 13px; color: #555;">Crafted from seasoned rosewood with tempered glass top. Excellent condition.</p>
+                <button type="button" onclick="quickAction('Solid Sheesham Wood 6-Seater Dining Table')">Select / Details</button>
+            </div>
+            
+            <div class="card">
+                <h4>⭐ 1980s Vintage Vinyl Turntable</h4>
+                <p><strong>Collectibles | Working</strong></p>
+                <p><strong>Rate / Metric:</strong> ₹8,500</p>
+                <p style="font-size: 13px; color: #555;">Working analog turntable with built-in phono pre-amp and magnetic cartridge.</p>
+                <button type="button" onclick="quickAction('1980s Vintage Vinyl Turntable')">Select / Details</button>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- Real-Time Activity Log -->
+    <section>
+        <h2>System Activity & Live Transaction History</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Ref ID</th>
+                    <th>User / Actor</th>
+                    <th>Operation / Item</th>
+                    <th>Timestamp</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody id="activityTableBody">
+                <tr><td colspan="5">No transactions recorded in current session.</td></tr>
+            </tbody>
+        </table>
+    </section>
+
+    <p style="color: #64748b; font-size: 13px; margin-top: 25px;">ReNewMarket System - Academic Year 2026</p>
+</div>
+
+<script>
+    const msg = document.getElementById("message");
+    let logs = [];
+
+    function showMessage(text) { msg.textContent = text; }
+
+    function quickAction(item) {
+        showMessage("Selected: " + item + ". Ready for processing.");
+    }
+
+    function addLog(ref, actor, op, status) {
+        const tbody = document.getElementById("activityTableBody");
+        if (logs.length === 0) tbody.innerHTML = "";
+        logs.unshift({ ref, actor, op, time: new Date().toLocaleTimeString(), status });
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+            <td><strong>${ref}</strong></td>
+            <td>${actor}</td>
+            <td>${op}</td>
+            <td>${new Date().toLocaleTimeString()}</td>
+            <td><span class="badge">${status}</span></td>
+        `;
+        tbody.prepend(tr);
+    }
+
+    // Attach submit listeners to each form
+    
+    document.getElementById("regForm").addEventListener("submit", function(ev) {
+        ev.preventDefault();
+        const refId = "REN-" + Math.floor(1000 + Math.random() * 9000);
+        showMessage("Buyer & Seller Account Management: Processed successfully! Reference ID: " + refId);
+        addLog(refId, "Authorized User", "Buyer & Seller Account Management", "Completed");
+        this.reset();
+    });
+    
+    document.getElementById("postForm").addEventListener("submit", function(ev) {
+        ev.preventDefault();
+        const refId = "REN-" + Math.floor(1000 + Math.random() * 9000);
+        showMessage("Seller Commodity Management - Post Pre-Loved Item: Processed successfully! Reference ID: " + refId);
+        addLog(refId, "Authorized User", "Seller Commodity Management - Post Pre-Loved Item", "Completed");
+        this.reset();
+    });
+    
+    document.getElementById("searchForm").addEventListener("submit", function(ev) {
+        ev.preventDefault();
+        const refId = "REN-" + Math.floor(1000 + Math.random() * 9000);
+        showMessage("Browse Marketplace & Negotiate Price: Processed successfully! Reference ID: " + refId);
+        addLog(refId, "Authorized User", "Browse Marketplace & Negotiate Price", "Completed");
+        this.reset();
+    });
+    
+    document.getElementById("offerForm").addEventListener("submit", function(ev) {
+        ev.preventDefault();
+        const refId = "REN-" + Math.floor(1000 + Math.random() * 9000);
+        showMessage("Price Counter-Offer & Order Placement: Processed successfully! Reference ID: " + refId);
+        addLog(refId, "Authorized User", "Price Counter-Offer & Order Placement", "Completed");
+        this.reset();
+    });
+    
+    document.getElementById("adminForm").addEventListener("submit", function(ev) {
+        ev.preventDefault();
+        const refId = "REN-" + Math.floor(1000 + Math.random() * 9000);
+        showMessage("Administrator Category & Order Logistics Control: Processed successfully! Reference ID: " + refId);
+        addLog(refId, "Authorized User", "Administrator Category & Order Logistics Control", "Completed");
+        this.reset();
+    });
+    
+</script>
+</body>
+</html>

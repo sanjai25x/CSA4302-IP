@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechConclave - Global Tech Summit & Event Portal</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #eef2ff; text-align: center; margin: 0; padding: 20px; color: #1e293b; }
+        .container { max-width: 920px; margin: auto; background: #ffffff; padding: 25px; border-radius: 12px; box-shadow: 0 4px 14px rgba(0,0,0,0.08); }
+        h1 { color: #3730a3; margin-bottom: 5px; }
+        h2 { color: #4f46e5; border-bottom: 2px solid #c7d2fe; padding-bottom: 6px; margin-top: 25px; font-size: 20px; }
+        h3 { color: #3730a3; font-size: 16px; margin-top: 15px; }
+        p { margin: 6px 0; }
+        input, select, textarea, button { padding: 9px; margin: 6px; max-width: 95%; border: 1px solid #cbd5e1; border-radius: 5px; box-sizing: border-box; font-size: 14px; }
+        button, input[type="submit"], input[type="button"] { cursor: pointer; background: #4f46e5; color: white; border: 0; border-radius: 5px; padding: 9px 18px; font-weight: bold; transition: background 0.2s; }
+        button:hover, input[type="submit"]:hover { background: #3730a3; }
+        table { margin: 15px auto; border-collapse: collapse; width: 98%; background: #fff; }
+        th, td { border: 1px solid #e2e8f0; padding: 10px; text-align: center; font-size: 14px; }
+        th { background-color: #e0e7ff; color: #3730a3; }
+        tr:nth-child(even) { background-color: #f8fafc; }
+        section { padding: 14px 0; border-bottom: 1px solid #e2e8f0; text-align: center; }
+        .message { background-color: #e0e7ff; color: #3730a3; padding: 10px; border-radius: 6px; font-weight: bold; margin: 12px 0; display: inline-block; min-width: 60%; }
+        .badge { display: inline-block; padding: 4px 8px; border-radius: 4px; font-size: 12px; font-weight: bold; background: #dcfce7; color: #166534; }
+        .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 15px; margin: 15px 0; }
+        .card { border: 1px solid #c7d2fe; border-radius: 8px; padding: 15px; background: #ffffff; text-align: left; box-shadow: 0 2px 6px rgba(0,0,0,0.03); }
+        .card h4 { margin: 0 0 6px 0; color: #4f46e5; }
+        @media (max-width: 600px) { body { padding: 8px; } .container { padding: 12px; } table { font-size: 12px; display: block; overflow-x: auto; } th, td { padding: 6px; } }
+    </style>
+</head>
+<body>
+<div class="container" id="mainContainer">
+    <h1>TechConclave 2026</h1>
+    <p>Annual Global Technology Summit, AI Innovation Tracks & Keynote Schedules</p>
+    <p id="message" class="message">Welcome to TechConclave 2026! Academic Lab Project - 2026.</p>
+
+    <!-- Interactive Sections -->
+    
+    <section id="missionSection">
+        <h2>1. Event Purpose, Mission & Target Audience</h2>
+        <form id="trackForm">
+            <select id="trackForm_delegatetrack">
+                        <option value="AI & Machine Learning">AI & Machine Learning</option><option value="Cloud & DevOps">Cloud & DevOps</option><option value="Cybersecurity">Cybersecurity</option><option value="FinTech">FinTech</option>
+                    </select><br>
+            <button type="submit">Explore Track Details</button>
+        </form>
+    </section>
+    
+    <section id="scheduleSection">
+        <h2>2. Conference Agenda & Timetable Tracks</h2>
+        <form id="schedForm">
+            <select id="schedForm_conferenceday">
+                        <option value="Day 1 (Keynotes)">Day 1 (Keynotes)</option><option value="Day 2 (Workshops)">Day 2 (Workshops)</option><option value="Day 3 (Hackathon)">Day 3 (Hackathon)</option>
+                    </select><br>
+            <button type="submit">View Detailed Schedule</button>
+        </form>
+    </section>
+    
+    <section id="speakersSection">
+        <h2>3. Keynote Speakers & Panel Discussions</h2>
+        <form id="speakerForm">
+            <input type="text" id="speakerForm_speakersessionqainquiry" placeholder="Speaker Session Q&A Inquiry" required> <input type="text" id="speakerForm_yourname" placeholder="Your Name" required><br>
+            <button type="submit">Submit Speaker Question</button>
+        </form>
+    </section>
+    
+    <section id="venueSection">
+        <h2>4. Venue Logistics & Travel Information</h2>
+        <form id="venueForm">
+            <select id="venueForm_travelassistance">
+                        <option value="Hotel Booking">Hotel Booking</option><option value="Shuttle Service">Shuttle Service</option><option value="None">None</option>
+                    </select><br>
+            <button type="submit">Request Travel Guide</button>
+        </form>
+    </section>
+    
+    <section id="registerSection">
+        <h2>5. Delegate Registration & Admission Badge</h2>
+        <form id="regForm">
+            <input type="text" id="regForm_delegatename" placeholder="Delegate Name" required> <input type="text" id="regForm_companyuniversity" placeholder="Company / University" required> <br><textarea id="regForm_txt" rows="2" cols="45" placeholder="Email Address..." required></textarea><br> <select id="regForm_pass">
+                        <option value="Standard Access">Standard Access</option><option value="VIP All-Access">VIP All-Access</option>
+                    </select><br>
+            <button type="submit">Register for TechConclave</button>
+        </form>
+    </section>
+    
+
+    <!-- Featured Items -->
+    <section>
+        <h2>Featured Catalog & Live Repository</h2>
+        <div class="card-grid">
+            
+            <div class="card">
+                <h4>⭐ Keynote: Next-Gen Agentic Intelligence</h4>
+                <p><strong>Dr. Alistair Vance (Chief AI Scientist)</strong></p>
+                <p><strong>Metrics / Fee:</strong> Auditorium A | 09:30 AM</p>
+                <p style="font-size: 13px; color: #555;">Exploring autonomous multi-agent reasoning systems and multimodal enterprise deployment.</p>
+                <button type="button" onclick="quickAction('Keynote: Next-Gen Agentic Intelligence')">Select / Explore</button>
+            </div>
+            
+            <div class="card">
+                <h4>⭐ Workshop: Zero-Trust Cloud Architecture</h4>
+                <p><strong>Elena Rostova (VP of Cloud Security)</strong></p>
+                <p><strong>Metrics / Fee:</strong> Lab Hall 2 | 02:00 PM</p>
+                <p style="font-size: 13px; color: #555;">Hands-on implementation of micro-segmentation and quantum-resistant encryption.</p>
+                <button type="button" onclick="quickAction('Workshop: Zero-Trust Cloud Architecture')">Select / Explore</button>
+            </div>
+            
+            <div class="card">
+                <h4>⭐ Panel: The Future of Quantum Computing</h4>
+                <p><strong>Industry Leaders Panel</strong></p>
+                <p><strong>Metrics / Fee:</strong> Grand Ballroom | 04:30 PM</p>
+                <p style="font-size: 13px; color: #555;">Discussion on practical quantum supremacy, cryptography shifts, and commercialization.</p>
+                <button type="button" onclick="quickAction('Panel: The Future of Quantum Computing')">Select / Explore</button>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- Activity Log Table -->
+    <section>
+        <h2>System Activity & Live Transaction History</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Ref ID</th>
+                    <th>User / Actor</th>
+                    <th>Action / Module</th>
+                    <th>Timestamp</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody id="activityTableBody">
+                <tr><td colspan="5">No transactions recorded in current session.</td></tr>
+            </tbody>
+        </table>
+    </section>
+
+    <p style="color: #64748b; font-size: 13px; margin-top: 25px;">TechConclave 2026 - Internet Programming Laboratory 2026</p>
+</div>
+
+<script>
+    const msg = document.getElementById("message");
+    let logs = [];
+
+    function showMessage(text) { msg.textContent = text; }
+
+    function quickAction(item) {
+        showMessage("Selected: " + item + ". Ready for processing.");
+    }
+
+    function addLog(ref, actor, op, status) {
+        const tbody = document.getElementById("activityTableBody");
+        if (logs.length === 0) tbody.innerHTML = "";
+        logs.unshift({ ref, actor, op, time: new Date().toLocaleTimeString(), status });
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+            <td><strong>${ref}</strong></td>
+            <td>${actor}</td>
+            <td>${op}</td>
+            <td>${new Date().toLocaleTimeString()}</td>
+            <td><span class="badge">${status}</span></td>
+        `;
+        tbody.prepend(tr);
+    }
+
+    // Attach submit listeners to each form
+    
+    document.getElementById("trackForm").addEventListener("submit", function(ev) {
+        ev.preventDefault();
+        const refId = "TEC-" + Math.floor(1000 + Math.random() * 9000);
+        showMessage("Event Purpose, Mission & Target Audience: Processed successfully! Reference ID: " + refId);
+        addLog(refId, "Authorized User", "Event Purpose, Mission & Target Audience", "Completed");
+        this.reset();
+    });
+    
+    document.getElementById("schedForm").addEventListener("submit", function(ev) {
+        ev.preventDefault();
+        const refId = "TEC-" + Math.floor(1000 + Math.random() * 9000);
+        showMessage("Conference Agenda & Timetable Tracks: Processed successfully! Reference ID: " + refId);
+        addLog(refId, "Authorized User", "Conference Agenda & Timetable Tracks", "Completed");
+        this.reset();
+    });
+    
+    document.getElementById("speakerForm").addEventListener("submit", function(ev) {
+        ev.preventDefault();
+        const refId = "TEC-" + Math.floor(1000 + Math.random() * 9000);
+        showMessage("Keynote Speakers & Panel Discussions: Processed successfully! Reference ID: " + refId);
+        addLog(refId, "Authorized User", "Keynote Speakers & Panel Discussions", "Completed");
+        this.reset();
+    });
+    
+    document.getElementById("venueForm").addEventListener("submit", function(ev) {
+        ev.preventDefault();
+        const refId = "TEC-" + Math.floor(1000 + Math.random() * 9000);
+        showMessage("Venue Logistics & Travel Information: Processed successfully! Reference ID: " + refId);
+        addLog(refId, "Authorized User", "Venue Logistics & Travel Information", "Completed");
+        this.reset();
+    });
+    
+    document.getElementById("regForm").addEventListener("submit", function(ev) {
+        ev.preventDefault();
+        const refId = "TEC-" + Math.floor(1000 + Math.random() * 9000);
+        showMessage("Delegate Registration & Admission Badge: Processed successfully! Reference ID: " + refId);
+        addLog(refId, "Authorized User", "Delegate Registration & Admission Badge", "Completed");
+        this.reset();
+    });
+    
+</script>
+</body>
+</html>

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuickFix - On-Road Vehicle Breakdown Assistance</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #fff7ed; text-align: center; margin: 0; padding: 20px; color: #1e293b; }
+        .container { max-width: 920px; margin: auto; background: #ffffff; padding: 25px; border-radius: 12px; box-shadow: 0 4px 14px rgba(0,0,0,0.08); }
+        h1 { color: #c2410c; margin-bottom: 5px; }
+        h2 { color: #ea580c; border-bottom: 2px solid #fed7aa; padding-bottom: 6px; margin-top: 25px; font-size: 20px; }
+        h3 { color: #c2410c; font-size: 16px; margin-top: 15px; }
+        p { margin: 6px 0; }
+        input, select, textarea, button { padding: 9px; margin: 6px; max-width: 95%; border: 1px solid #cbd5e1; border-radius: 5px; box-sizing: border-box; font-size: 14px; }
+        button, input[type="submit"], input[type="button"] { cursor: pointer; background: #ea580c; color: white; border: 0; border-radius: 5px; padding: 9px 18px; font-weight: bold; transition: background 0.2s; }
+        button:hover, input[type="submit"]:hover { background: #c2410c; }
+        table { margin: 15px auto; border-collapse: collapse; width: 98%; background: #fff; }
+        th, td { border: 1px solid #e2e8f0; padding: 10px; text-align: center; font-size: 14px; }
+        th { background-color: #ffedd5; color: #c2410c; }
+        tr:nth-child(even) { background-color: #f8fafc; }
+        section { padding: 14px 0; border-bottom: 1px solid #e2e8f0; text-align: center; }
+        .message { background-color: #ffedd5; color: #c2410c; padding: 10px; border-radius: 6px; font-weight: bold; margin: 12px 0; display: inline-block; min-width: 60%; }
+        .badge { display: inline-block; padding: 4px 8px; border-radius: 4px; font-size: 12px; font-weight: bold; background: #dcfce7; color: #166534; }
+        .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 15px; margin: 15px 0; }
+        .card { border: 1px solid #fed7aa; border-radius: 8px; padding: 15px; background: #ffffff; text-align: left; box-shadow: 0 2px 6px rgba(0,0,0,0.03); }
+        .card h4 { margin: 0 0 6px 0; color: #ea580c; }
+        @media (max-width: 600px) { body { padding: 8px; } .container { padding: 12px; } table { font-size: 12px; display: block; overflow-x: auto; } th, td { padding: 6px; } }
+    </style>
+</head>
+<body>
+<div class="container" id="mainContainer">
+    <h1>QuickFix</h1>
+    <p>24/7 Roadside Assistance, GPS Mechanic Dispatch & Emergency Towing</p>
+    <p id="message" class="message">Welcome to QuickFix! Academic Lab Project - 2026.</p>
+
+    <!-- Interactive Sections -->
+    
+    <section id="regSection">
+        <h2>1. Motorist & Mechanic Authentication</h2>
+        <form id="regForm">
+            <input type="text" id="regForm_fullname" placeholder="Full Name" required> <br><textarea id="regForm_txt" rows="2" cols="45" placeholder="Email Address..." required></textarea><br> <input type="text" id="regForm_mobilenumber" placeholder="Mobile Number" required> <select id="regForm_role">
+                        <option value="Motorist">Motorist</option><option value="Licensed Mechanic">Licensed Mechanic</option>
+                    </select><br>
+            <button type="submit">Register Account</button>
+        </form>
+    </section>
+    
+    <section id="sosSection">
+        <h2>2. Emergency SOS - Request Roadside Mechanic</h2>
+        <form id="sosForm">
+            <input type="text" id="sosForm_vehicleregno" placeholder="Vehicle Reg No" required> <select id="sosForm_breakdowntype">
+                        <option value="Flat Tire">Flat Tire</option><option value="Dead Battery">Dead Battery</option><option value="Engine Overheat">Engine Overheat</option><option value="Towing">Towing</option>
+                    </select> <input type="text" id="sosForm_currentlandmarkhighwaykm" placeholder="Current Landmark / Highway KM" required> <input type="text" id="sosForm_livegpscoordinates" placeholder="Live GPS Coordinates" required><br>
+            <button type="submit">Dispatch Nearest Mechanic</button>
+        </form>
+    </section>
+    
+    <section id="mechanicSection">
+        <h2>3. Mechanic Business Management - Post Workshop Details</h2>
+        <form id="mechForm">
+            <input type="text" id="mechForm_workshopname" placeholder="Workshop Name" required> <input type="text" id="mechForm_mechaniclicenseid" placeholder="Mechanic License ID" required> <input type="text" id="mechForm_servicespecialties" placeholder="Service Specialties" required> <input type="text" id="mechForm_operatingcityhighway" placeholder="Operating City / Highway" required><br>
+            <button type="submit">Register Mechanic Services</button>
+        </form>
+    </section>
+    
+    <section id="feedbackSection">
+        <h2>4. Submit Repair Feedback & Quality Rating</h2>
+        <form id="fbForm">
+            <input type="text" id="fbForm_serviceticketid" placeholder="Service Ticket ID" required> <input type="text" id="fbForm_mechanicname" placeholder="Mechanic Name" required> <select id="fbForm_rating">
+                        <option value="5 Stars">5 Stars</option><option value="4 Stars">4 Stars</option><option value="3 Stars">3 Stars</option>
+                    </select> <input type="text" id="fbForm_feedbacknotes" placeholder="Feedback Notes" required><br>
+            <button type="submit">Submit Review</button>
+        </form>
+    </section>
+    
+    <section id="adminSection">
+        <h2>5. Administrator License Verification & Plaza Coverage</h2>
+        <form id="adminForm">
+            <input type="text" id="adminForm_mechaniclicensenumbertoapprove" placeholder="Mechanic License Number to Approve" required><br>
+            <button type="submit">Verify & Approve Mechanic</button>
+        </form>
+    </section>
+    
+
+    <!-- Featured Items -->
+    <section>
+        <h2>Featured Catalog & Live Repository</h2>
+        <div class="card-grid">
+            
+            <div class="card">
+                <h4>⭐ Highway Hero Mobile Mechanics</h4>
+                <p><strong>NH-45 Express Corridor | 24/7</strong></p>
+                <p><strong>Metrics / Fee:</strong> Avg Arrival: 18 Mins</p>
+                <p style="font-size: 13px; color: #555;">Equipped for battery jumpstarts, hydraulic tire changes, and computerized diagnostics.</p>
+                <button type="button" onclick="quickAction('Highway Hero Mobile Mechanics')">Select / Explore</button>
+            </div>
+            
+            <div class="card">
+                <h4>⭐ Apex Heavy Vehicle Towing Services</h4>
+                <p><strong>City Central & Industrial Ring Road</strong></p>
+                <p><strong>Metrics / Fee:</strong> Flatbed Towing: ₹1,500</p>
+                <p style="font-size: 13px; color: #555;">Heavy hydraulic wheel-lift crane trucks for cars, SUVs, and commercial vans.</p>
+                <button type="button" onclick="quickAction('Apex Heavy Vehicle Towing Services')">Select / Explore</button>
+            </div>
+            
+            <div class="card">
+                <h4>⭐ GreenFuel Emergency Diesel & Petrol Delivery</h4>
+                <p><strong>OMR IT Expressway</strong></p>
+                <p><strong>Metrics / Fee:</strong> Fuel Delivery: ₹350</p>
+                <p style="font-size: 13px; color: #555;">Emergency canister fuel delivery (5 liters) with mobile puncture sealing.</p>
+                <button type="button" onclick="quickAction('GreenFuel Emergency Diesel & Petrol Delivery')">Select / Explore</button>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- Activity Log Table -->
+    <section>
+        <h2>System Activity & Live Transaction History</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Ref ID</th>
+                    <th>User / Actor</th>
+                    <th>Action / Module</th>
+                    <th>Timestamp</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody id="activityTableBody">
+                <tr><td colspan="5">No transactions recorded in current session.</td></tr>
+            </tbody>
+        </table>
+    </section>
+
+    <p style="color: #64748b; font-size: 13px; margin-top: 25px;">QuickFix - Internet Programming Laboratory 2026</p>
+</div>
+
+<script>
+    const msg = document.getElementById("message");
+    let logs = [];
+
+    function showMessage(text) { msg.textContent = text; }
+
+    function quickAction(item) {
+        showMessage("Selected: " + item + ". Ready for processing.");
+    }
+
+    function addLog(ref, actor, op, status) {
+        const tbody = document.getElementById("activityTableBody");
+        if (logs.length === 0) tbody.innerHTML = "";
+        logs.unshift({ ref, actor, op, time: new Date().toLocaleTimeString(), status });
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+            <td><strong>${ref}</strong></td>
+            <td>${actor}</td>
+            <td>${op}</td>
+            <td>${new Date().toLocaleTimeString()}</td>
+            <td><span class="badge">${status}</span></td>
+        `;
+        tbody.prepend(tr);
+    }
+
+    // Attach submit listeners to each form
+    
+    document.getElementById("regForm").addEventListener("submit", function(ev) {
+        ev.preventDefault();
+        const refId = "QUI-" + Math.floor(1000 + Math.random() * 9000);
+        showMessage("Motorist & Mechanic Authentication: Processed successfully! Reference ID: " + refId);
+        addLog(refId, "Authorized User", "Motorist & Mechanic Authentication", "Completed");
+        this.reset();
+    });
+    
+    document.getElementById("sosForm").addEventListener("submit", function(ev) {
+        ev.preventDefault();
+        const refId = "QUI-" + Math.floor(1000 + Math.random() * 9000);
+        showMessage("Emergency SOS - Request Roadside Mechanic: Processed successfully! Reference ID: " + refId);
+        addLog(refId, "Authorized User", "Emergency SOS - Request Roadside Mechanic", "Completed");
+        this.reset();
+    });
+    
+    document.getElementById("mechForm").addEventListener("submit", function(ev) {
+        ev.preventDefault();
+        const refId = "QUI-" + Math.floor(1000 + Math.random() * 9000);
+        showMessage("Mechanic Business Management - Post Workshop Details: Processed successfully! Reference ID: " + refId);
+        addLog(refId, "Authorized User", "Mechanic Business Management - Post Workshop Details", "Completed");
+        this.reset();
+    });
+    
+    document.getElementById("fbForm").addEventListener("submit", function(ev) {
+        ev.preventDefault();
+        const refId = "QUI-" + Math.floor(1000 + Math.random() * 9000);
+        showMessage("Submit Repair Feedback & Quality Rating: Processed successfully! Reference ID: " + refId);
+        addLog(refId, "Authorized User", "Submit Repair Feedback & Quality Rating", "Completed");
+        this.reset();
+    });
+    
+    document.getElementById("adminForm").addEventListener("submit", function(ev) {
+        ev.preventDefault();
+        const refId = "QUI-" + Math.floor(1000 + Math.random() * 9000);
+        showMessage("Administrator License Verification & Plaza Coverage: Processed successfully! Reference ID: " + refId);
+        addLog(refId, "Authorized User", "Administrator License Verification & Plaza Coverage", "Completed");
+        this.reset();
+    });
+    
+</script>
+</body>
+</html>

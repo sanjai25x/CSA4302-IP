@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CityPass - Multi-Category Transit Bus Pass Management</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f0f9ff; text-align: center; margin: 0; padding: 20px; color: #1e293b; }
+        .container { max-width: 920px; margin: auto; background: #ffffff; padding: 25px; border-radius: 12px; box-shadow: 0 4px 14px rgba(0,0,0,0.08); }
+        h1 { color: #0369a1; margin-bottom: 5px; }
+        h2 { color: #0284c7; border-bottom: 2px solid #bae6fd; padding-bottom: 6px; margin-top: 25px; font-size: 20px; }
+        h3 { color: #0369a1; font-size: 16px; margin-top: 15px; }
+        p { margin: 6px 0; }
+        input, select, textarea, button { padding: 9px; margin: 6px; max-width: 95%; border: 1px solid #cbd5e1; border-radius: 5px; box-sizing: border-box; font-size: 14px; }
+        button, input[type="submit"], input[type="button"] { cursor: pointer; background: #0284c7; color: white; border: 0; border-radius: 5px; padding: 9px 18px; font-weight: bold; transition: background 0.2s; }
+        button:hover, input[type="submit"]:hover { background: #0369a1; }
+        table { margin: 15px auto; border-collapse: collapse; width: 98%; background: #fff; }
+        th, td { border: 1px solid #e2e8f0; padding: 10px; text-align: center; font-size: 14px; }
+        th { background-color: #e0f2fe; color: #0369a1; }
+        tr:nth-child(even) { background-color: #f8fafc; }
+        section { padding: 14px 0; border-bottom: 1px solid #e2e8f0; text-align: center; }
+        .message { background-color: #e0f2fe; color: #0369a1; padding: 10px; border-radius: 6px; font-weight: bold; margin: 12px 0; display: inline-block; min-width: 60%; }
+        .badge { display: inline-block; padding: 4px 8px; border-radius: 4px; font-size: 12px; font-weight: bold; background: #dcfce7; color: #166534; }
+        .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 15px; margin: 15px 0; }
+        .card { border: 1px solid #bae6fd; border-radius: 8px; padding: 15px; background: #ffffff; text-align: left; box-shadow: 0 2px 6px rgba(0,0,0,0.03); }
+        .card h4 { margin: 0 0 6px 0; color: #0284c7; }
+        @media (max-width: 600px) { body { padding: 8px; } .container { padding: 12px; } table { font-size: 12px; display: block; overflow-x: auto; } th, td { padding: 6px; } }
+    </style>
+</head>
+<body>
+<div class="container" id="mainContainer">
+    <h1>CityPass</h1>
+    <p>Multi-User Concessions, QR Bus Passes, eWallet Top-Ups & Conductor Audits</p>
+    <p id="message" class="message">Welcome to CityPass! Academic Lab Project - 2026.</p>
+
+    <!-- Interactive Sections -->
+    
+    <section id="regSection">
+        <h2>1. Commuter & Conductor Registration</h2>
+        <form id="regForm">
+            <input type="text" id="regForm_commutername" placeholder="Commuter Name" required> <br><textarea id="regForm_txt" rows="2" cols="45" placeholder="Email Address..." required></textarea><br> <input type="text" id="regForm_phone" placeholder="Phone" required> <select id="regForm_category">
+                        <option value="School Student">School Student</option><option value="College Student">College Student</option><option value="Corporate Worker">Corporate Worker</option><option value="Senior Citizen">Senior Citizen</option>
+                    </select><br>
+            <button type="submit">Register Profile</button>
+        </form>
+    </section>
+    
+    <section id="applySection">
+        <h2>2. Apply for Route Bus Pass with Institution Verification</h2>
+        <form id="applyForm">
+            <input type="text" id="applyForm_applicantname" placeholder="Applicant Name" required> <input type="text" id="applyForm_educationalinstitutionemployerorganization" placeholder="Educational Institution / Employer Organization" required> <input type="text" id="applyForm_originstop" placeholder="Origin Stop" required> <input type="text" id="applyForm_destinationstop" placeholder="Destination Stop" required> <select id="applyForm_validity">
+                        <option value="Monthly Pass">Monthly Pass</option><option value="Quarterly Pass">Quarterly Pass</option>
+                    </select><br>
+            <button type="submit">Submit Pass Application</button>
+        </form>
+    </section>
+    
+    <section id="walletSection">
+        <h2>3. Digital Transit eWallet & Auto-Renewal</h2>
+        <form id="walletForm">
+            <input type="number" id="walletForm_ewallettopupamount" placeholder="eWallet Top-Up Amount (₹)" required> <select id="walletForm_autodeductonexpiry">
+                        <option value="Yes">Yes</option><option value="No">No</option>
+                    </select><br>
+            <button type="submit">Update Wallet Balance</button>
+        </form>
+    </section>
+    
+    <section id="conductorSection">
+        <h2>4. Conductor Terminal - QR Scan & Location Update</h2>
+        <form id="scanForm">
+            <input type="text" id="scanForm_scanorenterpassid" placeholder="Scan or Enter Pass ID" required> <input type="text" id="scanForm_currentbusstoplocation" placeholder="Current Bus Stop Location" required><br>
+            <button type="submit">Validate Pass & Update Transit Time</button>
+        </form>
+    </section>
+    
+    <section id="adminSection">
+        <h2>5. Transit Admin - Add Bus Details & Route Halts</h2>
+        <form id="adminForm">
+            <input type="text" id="adminForm_busroutenoeg21gsuperfast" placeholder="Bus Route No (e.g. 21G Superfast)" required> <input type="text" id="adminForm_origin" placeholder="Origin" required> <input type="text" id="adminForm_destination" placeholder="Destination" required> <input type="text" id="adminForm_frequencymins" placeholder="Frequency (Mins)" required> <select id="adminForm_bustype">
+                        <option value="AC Electric">AC Electric</option><option value="Deluxe Express">Deluxe Express</option>
+                    </select><br>
+            <button type="submit">Add Route Schedule</button>
+        </form>
+    </section>
+    
+
+    <!-- Featured Items -->
+    <section>
+        <h2>Featured Catalog & Live Repository</h2>
+        <div class="card-grid">
+            
+            <div class="card">
+                <h4>⭐ Student Concession Transit Pass</h4>
+                <p><strong>Government Recognized Institution</strong></p>
+                <p><strong>Metrics / Fee:</strong> Subsidized: 100% Free</p>
+                <p style="font-size: 13px; color: #555;">Valid on all ordinary and express bus routes within 35km radius of educational institution.</p>
+                <button type="button" onclick="quickAction('Student Concession Transit Pass')">Select / Explore</button>
+            </div>
+            
+            <div class="card">
+                <h4>⭐ Corporate Route Pass (Metro IT Link)</h4>
+                <p><strong>Tech Park Express Services</strong></p>
+                <p><strong>Metrics / Fee:</strong> Monthly: ₹1,100</p>
+                <p style="font-size: 13px; color: #555;">Direct air-conditioned electric feeder bus connection between metro hubs and IT parks.</p>
+                <button type="button" onclick="quickAction('Corporate Route Pass (Metro IT Link)')">Select / Explore</button>
+            </div>
+            
+            <div class="card">
+                <h4>⭐ Senior Citizen Dignity Pass</h4>
+                <p><strong>Senior Citizens (60+ Years)</strong></p>
+                <p><strong>Metrics / Fee:</strong> Monthly: ₹400</p>
+                <p style="font-size: 13px; color: #555;">Priority seating, low-floor bus boarding, and unlimited non-peak city transit.</p>
+                <button type="button" onclick="quickAction('Senior Citizen Dignity Pass')">Select / Explore</button>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- Activity Log Table -->
+    <section>
+        <h2>System Activity & Live Transaction History</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Ref ID</th>
+                    <th>User / Actor</th>
+                    <th>Action / Module</th>
+                    <th>Timestamp</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody id="activityTableBody">
+                <tr><td colspan="5">No transactions recorded in current session.</td></tr>
+            </tbody>
+        </table>
+    </section>
+
+    <p style="color: #64748b; font-size: 13px; margin-top: 25px;">CityPass - Internet Programming Laboratory 2026</p>
+</div>
+
+<script>
+    const msg = document.getElementById("message");
+    let logs = [];
+
+    function showMessage(text) { msg.textContent = text; }
+
+    function quickAction(item) {
+        showMessage("Selected: " + item + ". Ready for processing.");
+    }
+
+    function addLog(ref, actor, op, status) {
+        const tbody = document.getElementById("activityTableBody");
+        if (logs.length === 0) tbody.innerHTML = "";
+        logs.unshift({ ref, actor, op, time: new Date().toLocaleTimeString(), status });
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+            <td><strong>${ref}</strong></td>
+            <td>${actor}</td>
+            <td>${op}</td>
+            <td>${new Date().toLocaleTimeString()}</td>
+            <td><span class="badge">${status}</span></td>
+        `;
+        tbody.prepend(tr);
+    }
+
+    // Attach submit listeners to each form
+    
+    document.getElementById("regForm").addEventListener("submit", function(ev) {
+        ev.preventDefault();
+        const refId = "CIT-" + Math.floor(1000 + Math.random() * 9000);
+        showMessage("Commuter & Conductor Registration: Processed successfully! Reference ID: " + refId);
+        addLog(refId, "Authorized User", "Commuter & Conductor Registration", "Completed");
+        this.reset();
+    });
+    
+    document.getElementById("applyForm").addEventListener("submit", function(ev) {
+        ev.preventDefault();
+        const refId = "CIT-" + Math.floor(1000 + Math.random() * 9000);
+        showMessage("Apply for Route Bus Pass with Institution Verification: Processed successfully! Reference ID: " + refId);
+        addLog(refId, "Authorized User", "Apply for Route Bus Pass with Institution Verification", "Completed");
+        this.reset();
+    });
+    
+    document.getElementById("walletForm").addEventListener("submit", function(ev) {
+        ev.preventDefault();
+        const refId = "CIT-" + Math.floor(1000 + Math.random() * 9000);
+        showMessage("Digital Transit eWallet & Auto-Renewal: Processed successfully! Reference ID: " + refId);
+        addLog(refId, "Authorized User", "Digital Transit eWallet & Auto-Renewal", "Completed");
+        this.reset();
+    });
+    
+    document.getElementById("scanForm").addEventListener("submit", function(ev) {
+        ev.preventDefault();
+        const refId = "CIT-" + Math.floor(1000 + Math.random() * 9000);
+        showMessage("Conductor Terminal - QR Scan & Location Update: Processed successfully! Reference ID: " + refId);
+        addLog(refId, "Authorized User", "Conductor Terminal - QR Scan & Location Update", "Completed");
+        this.reset();
+    });
+    
+    document.getElementById("adminForm").addEventListener("submit", function(ev) {
+        ev.preventDefault();
+        const refId = "CIT-" + Math.floor(1000 + Math.random() * 9000);
+        showMessage("Transit Admin - Add Bus Details & Route Halts: Processed successfully! Reference ID: " + refId);
+        addLog(refId, "Authorized User", "Transit Admin - Add Bus Details & Route Halts", "Completed");
+        this.reset();
+    });
+    
+</script>
+</body>
+</html>
