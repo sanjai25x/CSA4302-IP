@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Library Management System</title>
+</head>
+<body>
+    <h1>Library Management System</h1>
+    <p>Welcome to our College Library</p>
+    <hr>
+    <h2>User Login</h2>
+    <form>
+        Username: <input type="text" placeholder="Enter username"><br><br>
+        Password: <input type="password" placeholder="Enter password"><br><br>
+        <input type="submit" value="Login">
+    </form>
+    <h2>User Registration</h2>
+    <form>
+        Name: <input type="text" placeholder="Enter name"><br><br>
+        Email: <input type="email" placeholder="Enter email"><br><br>
+        Password: <input type="password"><br><br>
+        <input type="submit" value="Register">
+    </form>
+    <hr>
+    <h2>Search Books</h2>
+    <form>
+        <input type="text" placeholder="Enter book name">
+        <input type="submit" value="Search">
+    </form>
+    <h3>Available Books</h3>
+    <table border="1">
+        <tr>
+            <th>Book ID</th>
+            <th>Book Name</th>
+            <th>Author</th>
+            <th>Status</th>
+        </tr>
+        <tr>
+            <td>101</td>
+            <td>Python Programming</td>
+            <td>Guido van Rossum</td>
+            <td>Available</td>
+        </tr>
+        <tr>
+            <td>102</td>
+            <td>Java Programming</td>
+            <td>James Gosling</td>
+            <td>Issued</td>
+        </tr>
+        <tr>
+            <td>103</td>
+            <td>Database Management</td>
+            <td>Abraham Silberschatz</td>
+            <td>Available</td>
+        </tr>
+    </table>
+    <h2>My Borrow History</h2>
+    <table border="1">
+        <tr>
+            <th>Book Name</th>
+            <th>Issue Date</th>
+            <th>Due Date</th>
+            <th>Status</th>
+        </tr>
+        <tr>
+            <td>Python Programming</td>
+            <td>01-10-2026</td>
+            <td>15-10-2026</td>
+            <td>Returned</td>
+        </tr>
+        <tr>
+            <td>Java Programming</td>
+            <td>10-10-2026</td>
+            <td>24-10-2026</td>
+            <td>Issued</td>
+        </tr>
+    </table>
+    <h2>My Fine Details</h2>
+    <p>Fine Amount: Rs. 20</p>
+    <hr>
+    <h2>Study Materials</h2>
+    <form>
+        Select Year:
+        <select>
+            <option>First Year</option>
+            <option>Second Year</option>
+            <option>Third Year</option>
+            <option>Fourth Year</option>
+        </select>
+        <br><br>
+        Select Semester:
+        <select>
+            <option>Semester 1</option>
+            <option>Semester 2</option>
+            <option>Semester 3</option>
+            <option>Semester 4</option>
+            <option>Semester 5</option>
+            <option>Semester 6</option>
+            <option>Semester 7</option>
+            <option>Semester 8</option>
+        </select>
+        <br><br>
+        <input type="submit" value="Search Materials">
+    </form>
+    <p>
+        <a href="study-material.pdf" download>
+            Download Study Material
+        </a>
+    </p>
+    <hr>
+    <h2>Librarian Admin</h2>
+    <h3>Add Book</h3>
+    <form>
+        Book ID: <input type="text"><br><br>
+        Book Name: <input type="text"><br><br>
+        Author: <input type="text"><br><br>
+        <input type="submit" value="Add Book">
+    </form>
+    <h3>Update or Delete Book</h3>
+    <form>
+        Enter Book ID: <input type="text"><br><br>
+        <input type="submit" value="Update Book">
+        <input type="reset" value="Delete Book">
+    </form>
+    <h3>Issue Book</h3>
+    <form>
+        Student ID: <input type="text"><br><br>
+        Book ID: <input type="text"><br><br>
+        Issue Date: <input type="date"><br><br>
+        Due Date: <input type="date"><br><br>
+        <input type="submit" value="Issue Book">
+    </form>
+    <h3>Return Book and Calculate Fine</h3>
+    <form>
+        Book ID: <input type="text"><br><br>
+        Return Date: <input type="date"><br><br>
+        Fine Amount: <input type="number" placeholder="Enter fine"><br><br>
+        <input type="submit" value="Update Return Status">
+    </form>
+    <h3>Upload Study Material</h3>
+    <form>
+        Material Name: <input type="text"><br><br>
+        Upload File: <input type="file"><br><br>
+        <input type="submit" value="Upload Material">
+    </form>
+    <hr>
+    <h2>My Profile</h2>
+    <p>Name: Student</p>
+    <p>Email: student@example.com</p>
+    <h2>Contact Us</h2>
+    <form>
+        Name: <input type="text"><br><br>
+        Email: <input type="email"><br><br>
+        Message:<br>
+        <textarea rows="4" cols="30"></textarea><br><br>
+        <input type="submit" value="Send Message">
+    </form>
+    <hr>
+    <p>Library Management System - 2026</p>
+</body>
+</html>
